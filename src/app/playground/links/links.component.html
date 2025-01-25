@@ -1,0 +1,8 @@
+@for(link of links; track link.title){
+    <h2>{{link.title}}</h2>
+    <div>
+        @for(contentLink of link.contentLinks; track contentLink.title){
+            <a href={{contentLink.href}}>{{contentLink.title}}</a>
+        }
+    </div>
+}
