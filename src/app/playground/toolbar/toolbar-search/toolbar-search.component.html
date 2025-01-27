@@ -1,0 +1,25 @@
+<div>
+
+  <p-select [options]="countries"
+            optionLabel="name"
+            placeholder="Select a country"
+            class="w-full md:w-56">
+    <ng-template #selectedItem
+                 let-selectedOption>
+      @if(selectedOption) {
+      <div class="flex items-center gap-2">
+        <span [class]="'aa--me-2 fi fi-' + selectedOption.code.toLowerCase() "></span>{{ selectedOption.name }}
+      </div>
+      }
+    </ng-template>
+    <ng-template let-country
+                 #item>
+      <span [class]="'aa--me-2 fi fi-' + country.code.toLowerCase() "></span>{{ country.name }}
+    </ng-template>
+    <ng-template #dropdownicon>
+      <i class="pi pi-map"></i>
+    </ng-template>
+  </p-select>
+
+
+</div>

@@ -1,3 +1,7 @@
 @use 'tailwindcss/base';
 @use 'tailwindcss/components';
-@use'tailwindcss/utilities';
+@use 'tailwindcss/utilities';
+
+@import 'flag-icons/css/flag-icons.min.css';
+
+@import "primeicons/primeicons.css";
