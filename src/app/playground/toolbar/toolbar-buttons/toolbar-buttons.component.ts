@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'aa-toolbar-buttons',
-  imports: [ButtonModule],
+  imports: [],
   templateUrl: './toolbar-buttons.component.html',
   styleUrl: './toolbar-buttons.component.scss'
 })
