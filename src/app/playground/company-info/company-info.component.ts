@@ -6,7 +6,6 @@ import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
   selector: 'aa-company-info',
   imports: [FontAwesomeModule],
   templateUrl: './company-info.component.html',
-  styleUrl: './company-info.component.css',
 })
 export class CompanyInfoComponent {
   faBriefcase = faBriefcase;
