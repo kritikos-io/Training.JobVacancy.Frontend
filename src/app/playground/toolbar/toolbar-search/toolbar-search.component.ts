@@ -1,14 +1,18 @@
 import { Component, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Select, SelectChangeEvent } from 'primeng/select';
 
 @Component({
   selector: 'aa-toolbar-search',
-  imports: [FormsModule, Select],
+  imports: [FormsModule, Select, FontAwesomeModule],
   templateUrl: './toolbar-search.component.html',
   styleUrl: './toolbar-search.component.scss'
 })
 export class ToolbarSearchComponent {
+
+  faMagnifyingGlass = faMagnifyingGlass;
 
   selectedcountryChange = output();
 
