@@ -4,14 +4,13 @@
 
     <fa-icon [icon]="faBriefcase"
              size="2x"
-             class="aa--me-3" />
+             class="aa--me-3 aa--text-black" />
 
-    <div class="aa--text-xl aa--font-bold aa--me-5">Job Pilot</div>
+    <div class="aa--text-black aa--text-xl aa--font-bold aa--me-5">Job Pilot</div>
 
-    <aa-toolbar-search />
+    <aa-toolbar-search (selectedcountryChange)="onSelectedCountryChange($event)" />
 
   </div>
-
 
   <aa-toolbar-buttons />
 

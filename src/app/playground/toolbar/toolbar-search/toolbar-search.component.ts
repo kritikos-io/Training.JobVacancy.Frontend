@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Select } from 'primeng/select';
+import { Select, SelectChangeEvent } from 'primeng/select';
 
 @Component({
   selector: 'aa-toolbar-search',
@@ -10,7 +10,9 @@ import { Select } from 'primeng/select';
 })
 export class ToolbarSearchComponent {
 
-  countries = [
+  selectedcountryChange = output();
+
+  countries = signal([
     { name: 'Australia', code: 'AU' },
     { name: 'Brazil', code: 'BR' },
     { name: 'China', code: 'CN' },
@@ -21,7 +23,9 @@ export class ToolbarSearchComponent {
     { name: 'Japan', code: 'JP' },
     { name: 'Spain', code: 'ES' },
     { name: 'United States', code: 'US' }
-  ];
+  ]).asReadonly();
 
-
+  onCountryChange(event: SelectChangeEvent) {
+    this.selectedcountryChange.emit(event.value.code);
+  }
 }

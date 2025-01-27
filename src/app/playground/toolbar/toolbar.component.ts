@@ -13,6 +13,10 @@ import { ToolbarSearchComponent } from "./toolbar-search/toolbar-search.componen
 })
 export class ToolbarComponent {
 
-  faBriefcase = faBriefcase
+  faBriefcase = faBriefcase;
+
+  onSelectedCountryChange(event: void) {
+    console.log('Selected country changed', event);
+  }
 
 }

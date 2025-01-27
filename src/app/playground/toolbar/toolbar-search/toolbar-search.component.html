@@ -1,9 +1,9 @@
-<div>
-
-  <p-select [options]="countries"
+<div class="aa--flex">
+  <p-select [options]="countries()"
             optionLabel="name"
             placeholder="Select a country"
-            class="w-full md:w-56">
+            (onChange)="onCountryChange($event)"
+            class="">
     <ng-template #selectedItem
                  let-selectedOption>
       @if(selectedOption) {
@@ -20,6 +20,6 @@
       <i class="pi pi-map"></i>
     </ng-template>
   </p-select>
-
-
+  <input type="text"
+         class="">
 </div>
