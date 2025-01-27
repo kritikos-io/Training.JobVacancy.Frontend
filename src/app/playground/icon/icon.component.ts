@@ -10,7 +10,6 @@ import {
 @Component({
   selector: 'aa-icon',
   templateUrl: './icon.component.html',
-  styleUrl: './icon.component.css',
   imports: [FontAwesomeModule],
 })
 export class IconComponent {

@@ -8,6 +8,5 @@ import { LinksComponent } from '../links/links.component';
   selector: 'aa-footer',
   imports: [LinksComponent, IconComponent, CompanyInfoComponent],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css',
 })
 export class FooterComponent {}
