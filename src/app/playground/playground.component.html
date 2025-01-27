@@ -1,24 +1,60 @@
-<header class="aa--h-auto aa--font-sans aa--text-lg aa--bg-gray-100">
-  <nav>
-    <ul class="aa--ml-32 aa--pl-64 aa--inline-flex aa--justify-items-auto aa--gap-5 aa--text-gray-500">
-      <li class="active [&.active]:aa--true [&.active]:aa--border-b-2 [&.active]:aa--border-blue-700 [&.active]:aa--font-semibold [&.active]:aa--text-blue-700 hover:aa--text-orange-500"><a href="#">
-        <button class="aa--h-full aa--w-auto aa--py-3 aa--px-2">Home</button>
-      </a></li>
-      <li class="active:aa--border-b-2 active:aa--border-blue-700 active:aa--font-semibold active:aa--text-blue-700 hover:aa--text-orange-500"><a href="#">
-        <button class="aa--h-full aa--w-auto aa--py-3 aa--px-2">Find Job</button>
-      </a></li>
-      <li class="active:aa--border-b-2 active:aa--border-blue-700 active:aa--font-semibold active:aa--text-blue-700 hover:aa--text-orange-500"><a href="#">
-        <button  class="aa--h-full aa--w-auto aa--py-3 aa--px-2">Employers</button>
-      </a></li>
-      <li class="active:aa--border-b-2 active:aa--border-blue-700 active:aa--font-semibold active:aa--text-blue-700 hover:aa--text-orange-500"><a href="#">
-        <button  class="aa--h-full aa--w-auto aa--py-3 aa--px-2">Candidates</button>
-      </a></li>
-      <li class="active:aa--border-b-2 active:aa--border-blue-700 active:aa--font-semibold active:aa--text-blue-700 hover:aa--text-orange-500"><a href="#">
-        <button  class="aa--h-full aa--w-auto aa--py-3 aa--px-2">Pricing Plans</button>
-      </a></li>
-      <li class="active:aa--border-b-2 active:aa--border-blue-700 active:aa--font-semibold active:aa--text-blue-700 hover:aa--text-orange-500"><a href="#">
-        <button  class="aa--h-full aa--w-auto aa--py-3 aa--px-2">Customer Supports</button>
-      </a></li>
+<header
+  class="aa--flex aa--h-auto aa--justify-end aa--bg-gray-100 aa--font-sans aa--text-lg"
+>
+  <nav class="aa--mr-[40vw] aa--flex aa--items-center">
+    <ul id="menu" [class]="classContent">
+      <li
+        class="active [&.active]:aa--true hover:aa--text-orange-500 [&.active]:aa--border-b-2 [&.active]:aa--border-blue-700 [&.active]:aa--font-semibold [&.active]:aa--text-blue-700"
+      >
+        <a href="#">
+          <button class="aa--h-full aa--w-auto aa--px-2 aa--py-3">Home</button>
+        </a>
+      </li>
+      <li
+        class="hover:aa--text-orange-500 active:aa--border-b-2 active:aa--border-blue-700 active:aa--font-semibold active:aa--text-blue-700"
+      >
+        <a href="#">
+          <button class="aa--h-full aa--w-auto aa--px-2 aa--py-3">Find Job</button>
+        </a>
+      </li>
+      <li
+        class="hover:aa--text-orange-500 active:aa--border-b-2 active:aa--border-blue-700 active:aa--font-semibold active:aa--text-blue-700"
+      >
+        <a href="#">
+          <button class="aa--h-full aa--w-auto aa--px-2 aa--py-3">Employers</button>
+        </a>
+      </li>
+      <li
+        class="hover:aa--text-orange-500 active:aa--border-b-2 active:aa--border-blue-700 active:aa--font-semibold active:aa--text-blue-700"
+      >
+        <a href="#">
+          <button class="aa--h-full aa--w-auto aa--px-2 aa--py-3">Candidates</button>
+        </a>
+      </li>
+      <li
+        class="hover:aa--text-orange-500 active:aa--border-b-2 active:aa--border-blue-700 active:aa--font-semibold active:aa--text-blue-700"
+      >
+        <a href="#">
+          <button class="aa--h-full aa--w-auto aa--px-2 aa--py-3">Pricing Plans</button>
+        </a>
+      </li>
+      <li
+        class="hover:aa--text-orange-500 active:aa--border-b-2 active:aa--border-blue-700 active:aa--font-semibold active:aa--text-blue-700"
+      >
+        <a href="#">
+          <button class="aa--h-full aa--w-auto aa--px-2 aa--py-3">
+            Customer Supports
+          </button>
+        </a>
+      </li>
     </ul>
-  </nav> 
+  </nav>
+  <div
+    class="aa-grow aa--items-left aa--mr-[5vw] aa--flex aa--py-2 aa--text-2xl md:aa--hidden"
+    (click)="onClick()"
+  >
+    <span class="material-symbols-outlined aa--cursor-pointer hover:aa--text-orange-500">
+      menu
+    </span>
+  </div>
 </header>
