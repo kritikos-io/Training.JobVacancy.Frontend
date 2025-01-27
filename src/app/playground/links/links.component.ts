@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'aa-links',
-  imports: [],
+  imports: [FontAwesomeModule],
   templateUrl: './links.component.html',
-  styleUrl: './links.component.css',
 })
 export class LinksComponent {
+  faArrowRight = faArrowRight;
+  hoveredLink: string | null = '';
   links = [
     {
       title: 'Quick Links',
@@ -44,4 +47,12 @@ export class LinksComponent {
       ],
     },
   ];
+
+  onMouseEnter(contentLink: string) {
+    this.hoveredLink = contentLink;
+  }
+
+  onMouseLeave() {
+    this.hoveredLink = '';
+  }
 }

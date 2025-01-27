@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faSuitcase } from '@fortawesome/free-solid-svg-icons';
+import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'aa-company-info',
@@ -9,5 +9,5 @@ import { faSuitcase } from '@fortawesome/free-solid-svg-icons';
   styleUrl: './company-info.component.css',
 })
 export class CompanyInfoComponent {
-  faSuitcase = faSuitcase;
+  faBriefcase = faBriefcase;
 }
