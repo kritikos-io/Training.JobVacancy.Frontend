@@ -1,25 +1,13 @@
 <div class="aa--flex">
-  <p-select [options]="countries()"
-            optionLabel="name"
-            placeholder="Select a country"
-            (onChange)="onCountryChange($event)"
-            class="aa--rounded-none aa--w-50 aa--h-12">
-    <ng-template #selectedItem
-                 let-selectedOption>
-      @if(selectedOption) {
-      <div class="flex items-center gap-2">
-        <span [class]="'aa--me-2 fi fi-' + selectedOption.code.toLowerCase() "></span>{{ selectedOption.name }}
-      </div>
-      }
-    </ng-template>
-    <ng-template let-country
-                 #item>
-      <span [class]="'aa--me-2 fi fi-' + country.code.toLowerCase() "></span>{{ country.name }}
-    </ng-template>
-    <ng-template #dropdownicon>
-      <i class="pi pi-angle-down"></i>
-    </ng-template>
-  </p-select>
+
+  <select [(ngModel)]="selectedCountry"
+          class="aa--block aa--w-40 aa--p-1 aa--text-sm aa--text-gray-900 aa--border aa--border-gray-300 aa--bg-gray-50 aa--h-12">
+    @for(country of countries(); track country.code)
+    {
+    <option value="{{ country.code }}">{{ country.name }}</option>
+    }
+  </select>
+
 
   <div class="aa--relative">
     <div class="aa--absolute aa--inset-y-0 aa--start-0 aa--flex aa--items-center aa--ps-3.5 aa--pointer-events-none">
