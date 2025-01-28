@@ -8,7 +8,8 @@
 
     <div class="aa--text-black aa--text-xl aa--font-bold aa--me-5">Job Pilot</div>
 
-    <aa-toolbar-search (selectedcountryChange)="onSelectedCountryChange($event)" />
+    <aa-toolbar-search (selectedcountryChange)="onSelectedCountryChange($event)"
+                       (searchTermChange)="onSearchTermChange($event)" />
 
   </div>
 

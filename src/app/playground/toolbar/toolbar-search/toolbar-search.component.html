@@ -15,7 +15,8 @@
                size="1x"
                class="aa--text-blue-600" />
     </div>
-    <input type="search"
+    <input [formControl]="searchTerm"
+           type="search"
            id="default-search"
            class="aa--block aa--w-80 aa--p-4 aa--ps-10 aa--text-sm aa--text-gray-900 aa--border aa--border-gray-300 aa--bg-gray-50 aa--h-12"
            placeholder="Job title, keyword, company" />

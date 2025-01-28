@@ -15,8 +15,12 @@ export class ToolbarComponent {
 
   faBriefcase = faBriefcase;
 
-  onSelectedCountryChange(event: void) {
-    console.log('Selected country changed', event);
+  onSelectedCountryChange(countryCode: string) {
+    console.log('Selected country changed', countryCode);
+  }
+
+  onSearchTermChange(searchTerm: string | null) {
+    console.log('Search Term changed', searchTerm);
   }
 
 }

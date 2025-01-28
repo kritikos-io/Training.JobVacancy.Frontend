@@ -1,21 +1,24 @@
 import { Component, effect, output, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'aa-toolbar-search',
-  imports: [FormsModule, FontAwesomeModule],
+  imports: [FormsModule, FontAwesomeModule, ReactiveFormsModule],
   templateUrl: './toolbar-search.component.html',
   styleUrl: './toolbar-search.component.scss'
 })
 export class ToolbarSearchComponent {
 
+  selectedcountryChange = output<string>();
+  searchTermChange = output<string | null>();
+
   faMagnifyingGlass = faMagnifyingGlass;
 
   selectedCountry = signal('');
-
-  selectedcountryChange = output<string>();
+  searchTerm = new FormControl('');
 
   countries = signal([
     { name: 'Australia', code: 'AU' },
@@ -32,6 +35,15 @@ export class ToolbarSearchComponent {
 
   constructor() {
     effect(() => this.selectedcountryChange.emit(this.selectedCountry()));
+
+    this.searchTerm.valueChanges.pipe(
+      debounceTime(500),
+      distinctUntilChanged()
+    )
+      .subscribe((value) => {
+        this.searchTermChange.emit(value)
+      });
   }
 
 }
+
