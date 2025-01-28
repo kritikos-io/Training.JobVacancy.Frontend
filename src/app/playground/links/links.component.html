@@ -4,11 +4,9 @@
         <h2 class="aa--font-bold aa--text-white aa--text-[21px] aa--mb-[8px]">{{link.title}}</h2>
         @for(contentLink of link.contentLinks; track contentLink.title){
             <p class="aa--mt-2">
-                <a href={{contentLink.href}}  (mouseenter)="onMouseEnter(contentLink.title)" (mouseleave)="onMouseLeave()" class="aa--text-[18px] hover:aa--text-white">
-                    @if(hoveredLink === contentLink.title){
-                        <fa-icon [icon]="faArrowRight" class="text-xl aa--mr-3 aa--text-white" />
-                    }
-                    <span class="">{{contentLink.title}}</span>
+                <a href="{{ contentLink.href }}" class="aa--text-[18px] hover:aa--text-white aa--flex  aa--group aa--relative">
+                    <fa-icon [icon]="faArrowRight" class="aa--absolute aa--left-0 aa--translate-x-[-8px] aa--opacity-0 aa--text-xl aa--text-white aa--transition-all aa--duration-300 group-hover:aa--opacity-100 group-hover:aa--translate-x-0"/>
+                    <span class="aa--pl-0 group-hover:aa--pl-6">{{ contentLink.title }}</span>
                 </a>
             </p>
         }

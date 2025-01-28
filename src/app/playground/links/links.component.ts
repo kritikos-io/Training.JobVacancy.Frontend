@@ -9,7 +9,6 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 })
 export class LinksComponent {
   faArrowRight = faArrowRight;
-  hoveredLink: string | null = '';
   links = [
     {
       title: 'Quick Links',
@@ -47,12 +46,4 @@ export class LinksComponent {
       ],
     },
   ];
-
-  onMouseEnter(contentLink: string) {
-    this.hoveredLink = contentLink;
-  }
-
-  onMouseLeave() {
-    this.hoveredLink = '';
-  }
 }
