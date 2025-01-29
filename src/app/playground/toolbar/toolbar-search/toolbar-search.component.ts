@@ -1,4 +1,4 @@
-import { Component, effect, output, signal } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -17,7 +17,6 @@ export class ToolbarSearchComponent {
 
   faMagnifyingGlass = faMagnifyingGlass;
 
-  selectedCountry = signal('');
   searchTerm = new FormControl('');
 
   countries = signal([
@@ -34,7 +33,6 @@ export class ToolbarSearchComponent {
   ]).asReadonly();
 
   constructor() {
-    effect(() => this.selectedcountryChange.emit(this.selectedCountry()));
 
     this.searchTerm.valueChanges.pipe(
       debounceTime(500),
