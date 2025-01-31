@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+
 import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
-  selector: 'aa-playground',
-  standalone: true,
+  selector: 'aa-header',
   imports: [NavbarComponent],
-  templateUrl: './playground.component.html',
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss',
 })
-export class PlaygroundComponent {}
+export class HeaderComponent {}
