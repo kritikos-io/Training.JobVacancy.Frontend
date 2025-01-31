@@ -1,0 +1,55 @@
+<nav class="aa--items-left aa--ml-[-20vw] aa--flex aa--w-max aa--self-start">
+  <ul id="menu" [class]="classContent">
+    <li
+      class="active [&.active]:aa--true hover:aa--text-orange-500 [&.active]:aa--border-b-2 [&.active]:aa--border-blue-700 [&.active]:aa--font-semibold [&.active]:aa--text-blue-700"
+    >
+      <a href="#">
+        <button class="aa--h-full aa--w-auto aa--px-2 aa--py-3">Home</button>
+      </a>
+    </li>
+    <li
+      class="hover:aa--text-orange-500 active:aa--border-b-2 active:aa--border-blue-700 active:aa--font-semibold active:aa--text-blue-700"
+    >
+      <a href="#">
+        <button class="aa--h-full aa--w-auto aa--px-2 aa--py-3">Find Job</button>
+      </a>
+    </li>
+    <li
+      class="hover:aa--text-orange-500 active:aa--border-b-2 active:aa--border-blue-700 active:aa--font-semibold active:aa--text-blue-700"
+    >
+      <a href="#">
+        <button class="aa--h-full aa--w-auto aa--px-2 aa--py-3">Employers</button>
+      </a>
+    </li>
+    <li
+      class="hover:aa--text-orange-500 active:aa--border-b-2 active:aa--border-blue-700 active:aa--font-semibold active:aa--text-blue-700"
+    >
+      <a href="#">
+        <button class="aa--h-full aa--w-auto aa--px-2 aa--py-3">Candidates</button>
+      </a>
+    </li>
+    <li
+      class="hover:aa--text-orange-500 active:aa--border-b-2 active:aa--border-blue-700 active:aa--font-semibold active:aa--text-blue-700"
+    >
+      <a href="#">
+        <button class="aa--h-full aa--w-auto aa--px-2 aa--py-3">Pricing Plans</button>
+      </a>
+    </li>
+    <li
+      class="hover:aa--text-orange-500 active:aa--border-b-2 active:aa--border-blue-700 active:aa--font-semibold active:aa--text-blue-700"
+    >
+      <a href="#">
+        <button class="aa--h-full aa--w-auto aa--px-2 aa--py-3">Customer Supports</button>
+      </a>
+    </li>
+  </ul>
+</nav>
+<div
+  class="aa-grow aa--items-left aa--text-md aa--my-2 aa--ml-56 aa--mr-[5vw] aa--flex aa--h-auto aa--min-h-[3vw] aa--w-auto aa--min-w-[3vw] aa--py-2 md:aa--hidden"
+  (click)="onClick()"
+>
+  <fa-icon
+    [icon]="faBars"
+    class="aa--color-black aa--h-full aa--w-full aa--cursor-pointer hover:aa--text-orange-500"
+  ></fa-icon>
+</div>

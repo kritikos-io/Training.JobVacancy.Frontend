@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { PlaygroundComponent } from "./playground/playground.component";
+import { PlaygroundComponent } from './playground/playground.component';
 
 @Component({
   selector: 'aa-root',
