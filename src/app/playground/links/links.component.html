@@ -5,7 +5,7 @@
         @for(contentLink of link.contentLinks; track contentLink.title){
             <p class="aa--mt-2">
                 <a href="{{ contentLink.href }}" class="aa--text-[18px] hover:aa--text-white aa--flex  aa--group aa--relative">
-                    <fa-icon [icon]="faArrowRight" class="aa--absolute aa--left-0 aa--translate-x-[-8px] aa--opacity-0 aa--text-xl aa--text-white aa--transition-all aa--duration-300 group-hover:aa--opacity-100 group-hover:aa--translate-x-0"/>
+                    <aa-icon [iconPrefix]="'fas'" [iconName] = "'arrow-right'" [size]="'1x'" [classes]="'aa--absolute aa--left-0 aa--translate-x-[-8px] aa--opacity-0 aa--text-xl aa--text-white aa--transition-all aa--duration-300 group-hover:aa--opacity-100 group-hover:aa--translate-x-0'"/>
                     <span class="aa--pl-0 group-hover:aa--pl-6">{{ contentLink.title }}</span>
                 </a>
             </p>

@@ -6,8 +6,22 @@ import {
   faInstagram,
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
-import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
+import { faBookmark } from '@fortawesome/free-regular-svg-icons';
+import {
+  faBriefcase,
+  faLocationDot,
+  faArrowRight,
+} from '@fortawesome/free-solid-svg-icons';
 
 export function addIcons(library: FaIconLibrary) {
-  library.addIcons(faFacebook, faYoutube, faInstagram, faTwitter, faBriefcase);
+  library.addIcons(
+    faFacebook,
+    faYoutube,
+    faInstagram,
+    faTwitter,
+    faBriefcase,
+    faLocationDot,
+    faBookmark,
+    faArrowRight
+  );
 }

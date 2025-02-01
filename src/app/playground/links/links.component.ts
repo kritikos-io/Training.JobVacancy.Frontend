@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
+import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'aa-links',
-  imports: [FontAwesomeModule],
+  imports: [IconComponent],
   templateUrl: './links.component.html',
 })
 export class LinksComponent {
-  faArrowRight = faArrowRight;
   links = [
     {
       title: 'Quick Links',
