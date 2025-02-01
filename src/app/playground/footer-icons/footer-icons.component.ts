@@ -7,10 +7,12 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 
+import { IconComponent } from '../icon/icon.component';
+
 @Component({
   selector: 'aa-footer-icons',
   templateUrl: './footer-icons.component.html',
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule, IconComponent],
 })
 export class FooterIconsComponent {
   constructor(library: FaIconLibrary) {
