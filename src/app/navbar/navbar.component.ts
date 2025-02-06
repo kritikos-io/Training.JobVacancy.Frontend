@@ -1,7 +1,7 @@
+import { NgFor, NgIf, NgClass } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faBars, faArrowUp } from '@fortawesome/free-solid-svg-icons';
-import { NgFor, NgIf, NgClass } from '@angular/common';
 
 @Component({
   selector: 'aa-navbar',
@@ -25,16 +25,17 @@ export class NavbarComponent {
     { title: 'Customer Support', href: '#', active: false },
   ];
 
-  trackByTitle(index: number, item: any): string {
-    return item.title;
-  }
-
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
     const windowWidth = (event.target as Window).innerWidth;
     if (windowWidth >= 768 && this.isMenuOpen) {
       this.isMenuOpen = false;
     }
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  trackByTitle(index: number, item: any): string {
+    return item.title;
   }
 
   handleMenu(): void {

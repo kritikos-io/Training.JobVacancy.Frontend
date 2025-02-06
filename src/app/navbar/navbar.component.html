@@ -1,4 +1,4 @@
-<nav class="aa--items-left aa--ml-[-20vw] aa--flex aa--w-max aa--self-start">
+<nav class="aa--ml-[15vw] aa--flex aa--w-max aa--items-center aa--self-start">
   <ul
     id="menu"
     class="aa--justify-left aa--flex aa--grow aa--flex-col aa--gap-5 aa--text-gray-500 md:aa--flex md:aa--flex-row"
@@ -29,13 +29,13 @@
     </ng-container>
   </ul>
 </nav>
-<div
-  class="aa-grow aa--items-left aa--text-md aa--my-2 aa--ml-56 aa--mr-[5vw] aa--flex aa--h-auto aa--min-h-[3vw] aa--w-auto aa--min-w-[3vw] aa--py-2 aa--align-top md:aa--hidden"
+<button
+  class="aa-grow aa--text-md aa--my-2 aa--ml-[90vw] aa--mr-[5vw] aa--flex aa--h-auto aa--min-h-[3vw] aa--w-auto aa--min-w-[3vw] aa--py-2 aa--align-top md:aa--hidden"
   (click)="toggleMenu()"
   aria-label="Toggle Menu"
 >
   <fa-icon
     [icon]="isMenuOpen ? faArrowUp : faBars"
     class="aa--color-black aa--h-full aa--w-full aa--cursor-pointer hover:aa--text-orange-500"
-  ></fa-icon>
-</div>
+  />
+</button>
