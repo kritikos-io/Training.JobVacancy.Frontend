@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'aa-toolbar-buttons',
   imports: [],
   templateUrl: './toolbar-buttons.component.html',
-  styleUrl: './toolbar-buttons.component.scss'
+  styleUrl: './toolbar-buttons.component.scss',
 })
-export class ToolbarButtonsComponent {
-
-}
+export class ToolbarButtonsComponent {}

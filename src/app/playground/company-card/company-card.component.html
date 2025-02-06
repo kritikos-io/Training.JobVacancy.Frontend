@@ -1,46 +1,41 @@
 @let company = companyData();
-<div class="aa--p-6 aa--bg-white aa--border aa--border-gray-200 aa--rounded-lg aa--shadow-sm aa--text-xl"
-     style="width: 500px;">
-
+<div
+  class="aa--p-6 aa--bg-white aa--border aa--border-gray-200 aa--rounded-lg aa--shadow-sm aa--text-xl"
+  style="width: 500px"
+>
   <div class="aa--inline-block aa--mb-4 aa--me-4">
     <div class="aa--rounded-lg aa--bg-pink-400 aa--p-3">
-      <fa-icon [icon]="faGlobe"
-               class="aa--text-white "
-               size="3x" />
+      <fa-icon [icon]="faGlobe" class="aa--text-white" size="3x" />
     </div>
   </div>
 
   <div class="aa--inline-block">
-
     <div class="aa--mb-2">
-
       <div class="aa--inline-block aa--font-bold aa--me-2">
         {{ company.name }}
       </div>
-      @if(company.isFeatured)
-      {
-      <div class="aa--inline-block aa--rounded-full aa--bg-pink-100 aa--px-3 aa--text-red-600">
-        Featured
-      </div>
+      @if (company.isFeatured) {
+        <div
+          class="aa--inline-block aa--rounded-full aa--bg-pink-100 aa--px-3 aa--text-red-600"
+        >
+          Featured
+        </div>
       }
     </div>
 
     <div class="aa--text-gray-400">
-      <fa-icon [icon]="faLocationDot"
-               class="aa--me-2"
-               size="sm" />
+      <fa-icon [icon]="faLocationDot" class="aa--me-2" size="sm" />
       {{ company.location }}, {{ company.country }}
     </div>
-
   </div>
 
-
   <div>
-    <button type="button"
-            class="aa--container aa--bg-blue-100 aa--font-bold aa--rounded aa--text-blue-600 aa--px-5 aa--py-2.5 aa--me-2 aa--mb-2"
-            (click)="onOpenPositions()">
+    <button
+      type="button"
+      class="aa--container aa--bg-blue-100 aa--font-bold aa--rounded aa--text-blue-600 aa--px-5 aa--py-2.5 aa--me-2 aa--mb-2"
+      (click)="onOpenPositions()"
+    >
       Open Positions ({{ company.openPositions }})
     </button>
   </div>
-
 </div>

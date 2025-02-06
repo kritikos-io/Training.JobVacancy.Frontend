@@ -1,7 +1,7 @@
 import { Component, inject, input } from '@angular/core';
 import { Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faGlobe, faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { faGlobe, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 import { Company } from '../models/company';
 
@@ -9,10 +9,9 @@ import { Company } from '../models/company';
   selector: 'aa-company-card',
   imports: [FontAwesomeModule],
   templateUrl: './company-card.component.html',
-  styleUrl: './company-card.component.scss'
+  styleUrl: './company-card.component.scss',
 })
 export class CompanyCardComponent {
-
   companyData = input.required<Company>();
 
   router = inject(Router);
@@ -24,5 +23,4 @@ export class CompanyCardComponent {
     console.log('Open positions clicked');
     this.router.navigateByUrl('#');
   }
-
 }

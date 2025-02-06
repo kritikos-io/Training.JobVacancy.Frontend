@@ -1,18 +1,17 @@
 import { Component } from '@angular/core';
 
-import { CompanyCardComponent } from "./company-card/company-card.component";
-import { Company } from './models/company';
+import { CompanyCardComponent } from './company-card/company-card.component';
 import { FooterComponent } from './footer/footer.component';
 import { JobCardComponent } from './job-card/job-card.component';
+import { Company } from './models/company';
 
 @Component({
   selector: 'aa-playground',
   standalone: true,
-  imports: [FooterComponent,JobCardComponent,CompanyCardComponent],
+  imports: [FooterComponent, JobCardComponent, CompanyCardComponent],
   templateUrl: './playground.component.html',
 })
 export class PlaygroundComponent {
-
   company1: Company = {
     name: 'Acme Inc.',
     location: 'San Francisco, CA',
@@ -20,7 +19,7 @@ export class PlaygroundComponent {
     isFeatured: true,
     openPositions: 5,
     openPositionsUrl: '#',
-    logoUrl: 'logo.jpg'
+    logoUrl: 'logo.jpg',
   };
 
   company2: Company = {
@@ -30,7 +29,7 @@ export class PlaygroundComponent {
     isFeatured: false,
     openPositions: 2,
     openPositionsUrl: '#',
-    logoUrl: 'logo.jpg'
+    logoUrl: 'logo.jpg',
   };
 
   company3: Company = {
@@ -40,7 +39,6 @@ export class PlaygroundComponent {
     isFeatured: true,
     openPositions: 3,
     openPositionsUrl: '#',
-    logoUrl: 'logo.jpg'
+    logoUrl: 'logo.jpg',
   };
-
 }

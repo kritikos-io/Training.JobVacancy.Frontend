@@ -8,10 +8,9 @@ import { debounceTime, distinctUntilChanged } from 'rxjs';
   selector: 'aa-toolbar-search',
   imports: [FormsModule, FontAwesomeModule, ReactiveFormsModule],
   templateUrl: './toolbar-search.component.html',
-  styleUrl: './toolbar-search.component.scss'
+  styleUrl: './toolbar-search.component.scss',
 })
 export class ToolbarSearchComponent {
-
   selectedcountryChange = output<string>();
   searchTermChange = output<string | null>();
 
@@ -29,19 +28,14 @@ export class ToolbarSearchComponent {
     { name: 'India', code: 'IN' },
     { name: 'Japan', code: 'JP' },
     { name: 'Spain', code: 'ES' },
-    { name: 'United States', code: 'US' }
+    { name: 'United States', code: 'US' },
   ]).asReadonly();
 
   constructor() {
-
-    this.searchTerm.valueChanges.pipe(
-      debounceTime(500),
-      distinctUntilChanged()
-    )
-      .subscribe((value) => {
-        this.searchTermChange.emit(value)
+    this.searchTerm.valueChanges
+      .pipe(debounceTime(500), distinctUntilChanged())
+      .subscribe(value => {
+        this.searchTermChange.emit(value);
       });
   }
-
 }
-
