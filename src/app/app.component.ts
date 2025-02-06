@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+import { HeaderComponent } from './header/header.component';
 import { PlaygroundComponent } from './playground/playground.component';
 
-import { HeaderComponent } from './header/header.component';
 
 @Component({
   selector: 'aa-root',
