@@ -14,7 +14,7 @@ Before getting started with Training.JobVacancy.Frontend , ensure your runtime e
 
 ### Installation
 
-Install Training.JobVacancy.Frontend  using one of the following methods:
+Install Training.JobVacancy.Frontend using one of the following methods:
 
 **Build from source:**
 
@@ -27,7 +27,7 @@ Install Training.JobVacancy.Frontend  using one of the following methods:
 2. Navigate to the project directory:
 
 ```sh
-❯ Training.JobVacancy.Frontend 
+❯ Training.JobVacancy.Frontend
 ```
 
 3. Install the project dependencies:

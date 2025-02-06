@@ -1,6 +1,23 @@
-<div class="sm:aa--ml-10 aa--ml-4 aa--mr-4 aa--mt-2 ">
-  <aa-job-card [jobData]="{id:'1',jobStatus: 'PART-TIME', jobTitle: 'Technical Support Specialist', minSalary: 20000, maxSalary: 25000, companyTitle: 'Google Inc.', city: 'Dhaka', country: 'Bangladesh', isSaved: false, companyLogo: 'google-color.png'}" />
+<div class="sm:aa--ml-10 aa--ml-4 aa--mr-4 aa--mt-2">
+  <aa-job-card
+    [jobData]="{
+      id: '1',
+      jobStatus: 'PART-TIME',
+      jobTitle: 'Technical Support Specialist',
+      minSalary: 20000,
+      maxSalary: 25000,
+      companyTitle: 'Google Inc.',
+      city: 'Dhaka',
+      country: 'Bangladesh',
+      isSaved: false,
+      companyLogo: 'google-color.png',
+    }"
+  />
+  <div class="aa--flex aa--flex-wrap aa--gap-5">
+    <aa-company-card [companyData]="company1" />
+    <aa-company-card [companyData]="company2" />
+    <aa-company-card [companyData]="company3" />
+  </div>
+
+  <aa-footer />
 </div>
-
-
-<aa-footer />

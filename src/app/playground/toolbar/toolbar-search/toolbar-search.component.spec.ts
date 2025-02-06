@@ -8,9 +8,8 @@ describe('ToolbarSearchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ToolbarSearchComponent]
-    })
-    .compileComponents();
+      imports: [ToolbarSearchComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ToolbarSearchComponent);
     component = fixture.componentInstance;
