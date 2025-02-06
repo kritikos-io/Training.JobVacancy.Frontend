@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 
 import { CompanyCardComponent } from "./company-card/company-card.component";
 import { Company } from './models/company';
+import { FooterComponent } from './footer/footer.component';
+import { JobCardComponent } from './job-card/job-card.component';
 
 @Component({
   selector: 'aa-playground',
   standalone: true,
-  imports: [CompanyCardComponent],
+  imports: [FooterComponent,JobCardComponent,CompanyCardComponent],
   templateUrl: './playground.component.html',
 })
 export class PlaygroundComponent {

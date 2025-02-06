@@ -1,0 +1,21 @@
+<div
+     class="aa--flex aa--flex-col md:aa--flex-row md:aa--flex aa--items-center md:aa--justify-around md:aa--h-20 md:aa--m-auto">
+
+  <div class="aa--inline-flex aa--items-center">
+
+    <fa-icon [icon]="faBriefcase"
+             size="2x"
+             class="aa--me-3 aa--text-blue-600" />
+
+    <div class="aa--text-black aa--text-xl aa--font-bold aa--me-5">Job Pilot</div>
+
+    <aa-toolbar-search (selectedcountryChange)="onSelectedCountryChange($event)"
+                       (searchTermChange)="onSearchTermChange($event)" />
+
+  </div>
+
+  <br class="md:aa--hidden" />
+
+  <aa-toolbar-buttons class="" />
+
+</div>
