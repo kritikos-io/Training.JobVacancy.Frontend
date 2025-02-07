@@ -9,12 +9,12 @@ import { HeaderComponent } from './shared/ui/header';
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent],
   template: `
-    <div class="content">
-      <aa-header />
-      <div class="main-content">
-        <main><router-outlet /></main>
-        <aa-footer />
-      </div>
+    <aa-header />
+    <aa-toolbar />
+    <h1 class="aa:text-2xl">Welcome to {{ title }}!</h1>
+    <br />
+    <div class="aa:flex aa:justify-center">
+      <router-outlet />
     </div>
   `,
   styleUrls: ['./app.component.scss'],

@@ -1,26 +1,26 @@
 <div
-  class="aa--grid aa--grid-cols-1 md:aa--grid-cols-[1fr_1fr_1fr_1fr] aa--gap-4 aa--ml-4"
+  class="aa:grid aa:grid-cols-1 aa:md:grid-cols-[1fr_1fr_1fr_1fr] aa:gap-4 aa:ml-4"
 >
   @for (link of links; track link.title) {
-    <div class="aa--flex-col aa-gap-[5px]">
-      <h2 class="aa--font-bold aa--text-white aa--text-[21px] aa--mb-[8px]">
+    <div class="aa:flex-col aa-gap-[5px]">
+      <h2 class="aa:font-bold aa:text-white aa:text-[21px] aa:mb-[8px]">
         {{ link.title }}
       </h2>
       @for (contentLink of link.contentLinks; track contentLink.title) {
-        <p class="aa--mt-2">
+        <p class="aa:mt-2">
           <a
             href="{{ contentLink.href }}"
-            class="aa--text-[18px] hover:aa--text-white aa--flex aa--group aa--relative"
+            class="aa:text-[18px] aa:hover:text-white aa:flex aa:group aa:relative"
           >
             <aa-icon
               [iconPrefix]="'fas'"
               [iconName]="'arrow-right'"
               [size]="'1x'"
               [classes]="
-                'aa--absolute aa--left-0 aa--translate-x-[-8px] aa--opacity-0 aa--text-xl aa--text-white aa--transition-all aa--duration-300 group-hover:aa--opacity-100 group-hover:aa--translate-x-0'
+                'aa:absolute aa:left-0 aa:translate-x-[-8px] aa:opacity-0 aa:text-xl aa:text-white aa:transition-all aa:duration-300 aa:group-hover:opacity-100 aa:group-hover:translate-x-0'
               "
             />
-            <span class="aa--pl-0 group-hover:aa--pl-6">{{ contentLink.title }}</span>
+            <span class="aa:pl-0 aa:group-hover:pl-6">{{ contentLink.title }}</span>
           </a>
         </p>
       }

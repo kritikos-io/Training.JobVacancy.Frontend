@@ -14,7 +14,7 @@ export class NavbarComponent {
   faArrowUp = faArrowUp;
   isMenuOpen = false;
 
-  navClass = 'aa--hidden';
+  navClass = 'aa:hidden';
 
   MenuItems = [
     { title: 'Home', href: '#', active: true },
@@ -42,7 +42,7 @@ export class NavbarComponent {
     if (this.isMenuOpen) {
       this.navClass = '';
     } else {
-      this.navClass = 'aa--hidden';
+      this.navClass = 'aa:hidden';
     }
   }
 
