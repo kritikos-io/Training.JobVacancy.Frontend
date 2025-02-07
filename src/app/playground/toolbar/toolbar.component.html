@@ -1,10 +1,10 @@
 <div
-  class="aa--flex aa--flex-col md:aa--flex-row md:aa--flex aa--items-center md:aa--justify-around md:aa--h-20 md:aa--m-auto"
+  class="aa:flex aa:flex-col aa:md:flex-row aa:md:flex aa:items-center aa:md:justify-around aa:md:h-20 aa:md:m-auto"
 >
-  <div class="aa--inline-flex aa--items-center">
-    <fa-icon [icon]="faBriefcase" size="2x" class="aa--me-3 aa--text-blue-600" />
+  <div class="aa:inline-flex aa:items-center">
+    <fa-icon [icon]="faBriefcase" size="2x" class="aa:me-3 aa:text-blue-600" />
 
-    <div class="aa--text-black aa--text-xl aa--font-bold aa--me-5">Job Pilot</div>
+    <div class="aa:text-black aa:text-xl aa:font-bold aa:me-5">Job Pilot</div>
 
     <aa-toolbar-search
       (selectedcountryChange)="onSelectedCountryChange($event)"
@@ -12,7 +12,7 @@
     />
   </div>
 
-  <br class="md:aa--hidden" />
+  <br class="aa:md:hidden" />
 
   <aa-toolbar-buttons class="" />
 </div>

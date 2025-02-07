@@ -11,9 +11,9 @@ import { ToolbarComponent } from './playground/toolbar/toolbar.component';
   template: `
     <aa-header />
     <aa-toolbar />
-    <h1 class="aa--text-2xl">Welcome to {{ title }}!</h1>
+    <h1 class="aa:text-2xl">Welcome to {{ title }}!</h1>
     <br />
-    <div class="aa--flex aa--justify-center">
+    <div class="aa:flex aa:justify-center">
       <router-outlet />
     </div>
   `,
