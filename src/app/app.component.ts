@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { HeaderComponent } from './header/header.component';
-import { ToolbarComponent } from './playground/toolbar/toolbar.component';
+import { FooterComponent } from './shared/ui/footer';
+import { HeaderComponent } from './shared/ui/header';
 
 @Component({
   selector: 'aa-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, ToolbarComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   template: `
-    <aa-header />
-    <aa-toolbar />
-    <h1 class="aa--text-2xl">Welcome to {{ title }}!</h1>
-    <br />
-    <div class="aa--flex aa--justify-center">
-      <router-outlet />
+    <div class="content">
+      <aa-header />
+      <div class="main-content">
+        <main><router-outlet /></main>
+        <aa-footer />
+      </div>
     </div>
   `,
   styleUrls: ['./app.component.scss'],

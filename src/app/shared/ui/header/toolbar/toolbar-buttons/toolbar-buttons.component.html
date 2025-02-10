@@ -1,0 +1,24 @@
+<div class="aa--flex aa--h-12">
+  @if (!(isAuthenticated$ | async)?.isAuthenticated) {
+    <button
+      (click)="login()"
+      class="aa--py-2 aa--px-5 aa--me-2 aa--mb-2 aa--text-sm aa--font-bold aa--text-blue-600 aa--bg-white aa--border aa--border-gray-300"
+    >
+      Sign In
+    </button>
+  } @else {
+    <button
+      (click)="logout()"
+      class="aa--py-2 aa--px-5 aa--me-2 aa--mb-2 aa--text-sm aa--font-bold aa--text-blue-600 aa--bg-white aa--border aa--border-gray-300"
+    >
+      Logout
+    </button>
+  }
+
+  <button
+    type="button"
+    class="aa--py-2 aa--px-5 aa--me-2 aa--mb-2 aa--text-sm aa--font-bold aa--text-white aa--bg-blue-600"
+  >
+    Post A Jobs
+  </button>
+</div>
