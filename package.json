@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "lint:fix": "ng lint --fix"
   },
   "engines": {
     "node": "^22.0.0"
@@ -28,6 +29,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.7.1",
     "@fortawesome/free-regular-svg-icons": "^6.7.1",
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
+    "angular-auth-oidc-client": "^19.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
