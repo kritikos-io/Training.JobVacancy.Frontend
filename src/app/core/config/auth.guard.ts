@@ -1,0 +1,46 @@
+import { inject, Injectable } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
+import { OidcSecurityService } from 'angular-auth-oidc-client';
+import { jwtDecode } from 'jwt-decode';
+
+import { CustomJwtDecoder } from '../models/custom-decode.model';
+
+@Injectable({ providedIn: 'root' })
+export class AuthGuard implements CanActivate {
+  private readonly auth = inject(OidcSecurityService);
+
+  private data? = JSON.parse(
+    window.localStorage.getItem('0-poc-frontend-training') || ''
+  );
+  private token = this.data.authnResult.access_token;
+  private tokenData = jwtDecode<CustomJwtDecoder>(this.token);
+  private realmRoles: unknown;
+  private resourceRoles: unknown;
+
+  constructor(
+    private authState: OidcSecurityService,
+    private router: Router
+  ) {}
+
+  canActivate(): boolean {
+    if (this.tokenData.email_verified) {
+      this.checkUserRole();
+      return true;
+    } else {
+      this.router.navigate(['/unauthorized']);
+      return false;
+    }
+  }
+
+  checkUserRole() {
+    if (this.token) {
+      try {
+        this.realmRoles = this.tokenData.realm_access.roles;
+        this.resourceRoles = this.tokenData.resource_access.account.roles;
+      } catch (error) {
+        console.error('Invalid token:', error);
+        this.router.navigate(['/error']);
+      }
+    }
+  }
+}
