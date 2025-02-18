@@ -14,8 +14,18 @@ export class AuthGuard implements CanActivate {
   );
   private token = this.data.authnResult.access_token;
   private tokenData = jwtDecode<CustomJwtDecoder>(this.token);
-  private realmRoles: unknown;
   private resourceRoles: unknown;
+  reason = '';
+
+  roles = {
+    playground: {
+      view_profile: 'view-profile',
+    },
+    candidates: {
+      view_profile: 'view-profile',
+      admin: 'administrator',
+    },
+  };
 
   constructor(
     private authState: OidcSecurityService,
@@ -23,8 +33,13 @@ export class AuthGuard implements CanActivate {
   ) {}
 
   canActivate(): boolean {
-    if (this.tokenData.email_verified) {
+    if (this.auth.isAuthenticated()) {
       this.checkUserRole();
+      const requiredRoles = Object.values(this.roles.playground);
+      if (this.hasAccess(requiredRoles)) {
+        this.router.navigate(['/unauthorized']);
+        return false;
+      }
       return true;
     } else {
       this.router.navigate(['/unauthorized']);
@@ -35,12 +50,16 @@ export class AuthGuard implements CanActivate {
   checkUserRole() {
     if (this.token) {
       try {
-        this.realmRoles = this.tokenData.realm_access.roles;
         this.resourceRoles = this.tokenData.resource_access.account.roles;
       } catch (error) {
         console.error('Invalid token:', error);
         this.router.navigate(['/error']);
       }
     }
+  }
+
+  hasAccess(requiredRoles: string[]): boolean {
+    const userRoles = this.resourceRoles as string[];
+    return requiredRoles.some(role => userRoles.includes(role));
   }
 }
