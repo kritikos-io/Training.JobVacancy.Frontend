@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
+import { CanActivate, Router, ActivatedRouteSnapshot  } from '@angular/router';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { jwtDecode } from 'jwt-decode';
 
@@ -32,11 +32,15 @@ export class AuthGuard implements CanActivate {
     private router: Router
   ) {}
 
-  canActivate(): boolean {
+  canActivate(route: ActivatedRouteSnapshot): boolean {
+    const targetPage = route.queryParams['targetPage'] as keyof typeof this.roles;
+    console.log(targetPage);
+
     if (this.auth.isAuthenticated()) {
-      this.checkUserRole();
-      const requiredRoles = Object.values(this.roles.playground);
-      if (this.hasAccess(requiredRoles)) {
+      this.checkUserRole(); 
+      const requiredRoles = this.roles[targetPage] ? Object.values(this.roles[targetPage]) : [];
+
+      if (!this.hasAccess(requiredRoles)) {
         this.router.navigate(['/unauthorized']);
         return false;
       }
@@ -60,6 +64,13 @@ export class AuthGuard implements CanActivate {
 
   hasAccess(requiredRoles: string[]): boolean {
     const userRoles = this.resourceRoles as string[];
-    return requiredRoles.some(role => userRoles.includes(role));
+    console.log('User roles:', userRoles); // Log user roles to debug
+    console.log('Required roles:', requiredRoles);
+    for(const role of requiredRoles){
+      if(!userRoles.includes(role)){
+        return false;
+      }
+    }
+    return true;
   }
 }

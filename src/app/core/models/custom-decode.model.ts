@@ -29,9 +29,6 @@ export interface CustomJwtDecoder {
 }
 
 enum UserRole {
-  OFFLINE_ACCESS = 'offline_access',
-  DEFAULT_ROLES_IOT = 'default-roles-iot',
-  UMA_AUTHORIZATION = 'uma_authorization',
   MANAGE_ACCOUNT = 'manage-account',
   MANAGE_ACCOUNT_LINKS = 'manage-account-links',
   VIEW_PROFILE = 'view-profile',

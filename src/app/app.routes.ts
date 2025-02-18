@@ -16,6 +16,11 @@ export const routes: Routes = [
     loadComponent: () => import('./features/playground').then(c => c.PlaygroundComponent),
   },
   {
+    path: 'candidates',
+    canActivate: [autoLoginPartialRoutesGuard, AuthGuard],
+    loadComponent: () => import('./features/candidates').then(c => c.CandidatesComponent),
+  },
+  {
     path: 'unauthorized',
     canActivate: [],
     loadComponent: () =>
@@ -27,5 +32,5 @@ export const routes: Routes = [
     loadComponent: () => import('./features/error').then(c => c.ErrorComponent),
   },
 
-  { path: '**', redirectTo: 'home' },
+  { path: '**', redirectTo: 'error' },
 ];
