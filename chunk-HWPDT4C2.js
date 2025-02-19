@@ -1,1 +1,0 @@
-import{Db as a,_a as t,pb as n,qb as m}from"./chunk-C3APRFVB.js";var p=class o{static \u0275fac=function(e){return new(e||o)};static \u0275cmp=t({type:o,selectors:[["aa-home"]],decls:2,vars:0,template:function(e,i){e&1&&(n(0,"p"),a(1,"home works!"),m())},encapsulation:2})};export{p as HomeComponent};
