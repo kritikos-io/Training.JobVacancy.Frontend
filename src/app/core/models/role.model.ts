@@ -1,4 +1,11 @@
-export interface CustomJwtDecoder {
+export enum UserRole {
+  MANAGE_ACCOUNT = 'manage-account',
+  MANAGE_ACCOUNT_LINKS = 'manage-account-links',
+  VIEW_PROFILE = 'view-profile',
+  ADMIN = 'administrator',
+}
+
+export interface User {
   exp: number;
   iat: number;
   auth_time: number;
@@ -26,10 +33,4 @@ export interface CustomJwtDecoder {
   given_name: string;
   family_name: string;
   email: string;
-}
-
-enum UserRole {
-  MANAGE_ACCOUNT = 'manage-account',
-  MANAGE_ACCOUNT_LINKS = 'manage-account-links',
-  VIEW_PROFILE = 'view-profile',
 }

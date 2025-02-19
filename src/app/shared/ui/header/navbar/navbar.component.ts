@@ -53,14 +53,14 @@ export class NavbarComponent {
     this.handleMenu();
   }
 
-  onClick(index: number){
+  onClick(index: number) {
     for (const item of this.MenuItems) {
-      if(item.active){
-        item.active = !item.active
+      if (item.active) {
+        item.active = !item.active;
       }
     }
     this.MenuItems[index].active = true;
     const targetHref = this.MenuItems[index].href;
-    this.router.navigate([targetHref], { queryParams: { targetPage: targetHref } });
+    this.router.navigate([targetHref]);
   }
 }
