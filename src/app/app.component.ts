@@ -8,12 +8,12 @@ import { HeaderComponent } from './shared/ui/header';
   standalone: true,
   imports: [RouterOutlet, HeaderComponent],
   template: `
-    <aa-header />
-    <h1 class="aa:text-2xl">Welcome to {{ title }}!</h1>
-    <br />
-    <div class="aa:flex aa:justify-center">
-      <router-outlet />
-    </div>
+  <div class="aa:flex aa:flex-col aa:h-screen">
+      <aa-header/>
+      <div class="aa:grow">
+        <router-outlet />
+      </div>
+  </div>
   `,
   styleUrls: ['./app.component.scss'],
 })
