@@ -22,8 +22,8 @@ export class NavbarComponent {
     { title: 'Employers', href: '#', active: false },
     { title: 'Candidates', href: '#', active: false },
     { title: 'Pricing Plans', href: '#', active: false },
-    { title: 'Superset Public', href: '/superset-public', active: false },
-    { title: 'Playground', href: '/playground', active: false },
+    { title: 'Superset Public', href: 'superset-public', active: false },
+    { title: 'Playground', href: 'playground', active: false },
   ];
 
   @HostListener('window:resize', ['$event'])
