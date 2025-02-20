@@ -13,6 +13,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/superset/public/public.component').then(c => c.PublicComponent),
   },
   {
+    path: 'superset-private',
+    loadComponent: () => import('./features/superset/private/private.component').then(c => c.PrivateComponent),
+  },
+  {
     path: 'playground',
     canActivate: [autoLoginPartialRoutesGuard],
     loadComponent: () => import('./features/playground').then(c => c.PlaygroundComponent),

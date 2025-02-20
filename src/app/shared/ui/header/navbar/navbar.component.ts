@@ -23,6 +23,7 @@ export class NavbarComponent {
     { title: 'Candidates', href: '#', active: false },
     { title: 'Pricing Plans', href: '#', active: false },
     { title: 'Superset Public', href: 'superset-public', active: false },
+    { title: 'Superset Private', href: 'superset-private', active: false },
     { title: 'Playground', href: 'playground', active: false },
   ];
 
