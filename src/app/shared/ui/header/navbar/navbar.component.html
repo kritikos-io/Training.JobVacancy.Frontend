@@ -1,26 +1,23 @@
-<nav class="aa--ml-[15vw] aa--flex aa--w-max aa--items-center aa--self-start">
-  <ul
-    id="menu"
-    class="aa--justify-left aa--flex aa--grow aa--flex-col aa--gap-5 aa--text-gray-500 md:aa--flex md:aa--flex-row"
-    [ngClass]="navClass"
-  >
+<nav class="aa:ml-[15vw] aa:flex aa:w-max aa:items-center aa:self-start">
+  <ul id="menu"
+      class="aa:justify-left aa:flex aa:grow aa:flex-col aa:gap-5 aa:text-gray-500 aa:md:flex aa:md:flex-row"
+      [ngClass]="navClass">
     <ng-container *ngFor="let item of MenuItems; trackBy: trackByTitle">
       <div *ngIf="item.active; then content; else other"></div>
       <ng-template #content>
         <li
-          class="active hover:aa--text-orange-500 [&.active]:aa--border-b-2 [&.active]:aa--border-blue-700 [&.active]:aa--font-semibold [&.active]:aa--text-blue-700"
-        >
+            class="active aa:hover:text-orange-500 aa:[&.active]:border-b-2 aa:[&.active]:border-blue-700 aa:[&.active]:font-semibold aa:[&.active]:text-blue-700">
           <a [attr.href]="item.href">
-            <button class="aa--h-full aa--w-auto aa--px-2 aa--py-3">
+            <button class="aa:h-full aa:w-auto aa:px-2 aa:py-3">
               {{ item.title }}
             </button>
           </a>
         </li>
       </ng-template>
       <ng-template #other>
-        <li class="hover:aa--text-orange-500">
+        <li class="aa:hover:text-orange-500">
           <a [attr.href]="item.href">
-            <button class="aa--h-full aa--w-auto aa--px-2 aa--py-3">
+            <button class="aa:h-full aa:w-auto aa:px-2 aa:py-3">
               {{ item.title }}
             </button>
           </a>
@@ -29,13 +26,9 @@
     </ng-container>
   </ul>
 </nav>
-<button
-  class="aa-grow aa--text-md aa--my-2 aa--ml-[90vw] aa--mr-[5vw] aa--flex aa--h-auto aa--min-h-[3vw] aa--w-auto aa--min-w-[3vw] aa--py-2 aa--align-top md:aa--hidden"
-  (click)="toggleMenu()"
-  aria-label="Toggle Menu"
->
-  <fa-icon
-    [icon]="isMenuOpen ? faArrowUp : faBars"
-    class="aa--color-black aa--h-full aa--w-full aa--cursor-pointer hover:aa--text-orange-500"
-  />
+<button class="aagrow aa:text-md aa:my-2 aa:ml-[90vw] aa:mr-[5vw] aa:flex aa:h-auto aa:min-h-[3vw] aa:w-auto aa:min-w-[3vw] aa:py-2 aa:align-top aa:md:hidden"
+        (click)="toggleMenu()"
+        aria-label="Toggle Menu">
+  <fa-icon [icon]="isMenuOpen ? faArrowUp : faBars"
+           class="aa:color-black aa:h-full aa:w-full aa:cursor-pointer aa:hover:text-orange-500" />
 </button>

@@ -1,11 +1,5 @@
-<div class="sm:aa--ml-10 aa--ml-4 aa--mr-4 aa--mt-2">
-  @if (userData$ | async; as userData) {
-    <pre>{{ userData | json }}</pre>
-  } @else {
-    <p>No user data available</p>
-  }
-  <aa-job-card
-    [jobData]="{
+<div class="aa:sm:ml-10 aa:ml-4 aa:mr-4 aa:mt-2">
+  <aa-job-card [jobData]="{
       id: '1',
       jobStatus: 'PART-TIME',
       jobTitle: 'Technical Support Specialist',
@@ -16,9 +10,8 @@
       country: 'Bangladesh',
       isSaved: false,
       companyLogo: 'google-color.png',
-    }"
-  />
-  <div class="aa--flex aa--flex-wrap aa--gap-5">
+    }" />
+  <div class="aa:flex aa:flex-wrap aa:gap-5">
     <aa-company-card [companyData]="company1" />
     <aa-company-card [companyData]="company2" />
     <aa-company-card [companyData]="company3" />

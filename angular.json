@@ -5,11 +5,7 @@
   "projects": {
     "job-vacancy-training": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": { "@schematics/angular:component": { "style": "css" } },
       "root": "",
       "sourceRoot": "src",
       "prefix": "aa",
@@ -22,24 +18,15 @@
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
-            "styles": ["src/styles.scss"],
+            "inlineStyleLanguage": "css",
+            "assets": [{ "glob": "**/*", "input": "public" }],
+            "styles": ["src/styles.css"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
+                { "type": "initial", "maximumWarning": "500kB", "maximumError": "1MB" },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "4kB",
@@ -60,29 +47,24 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "production": {
-              "buildTarget": "job-vacancy-training:build:production"
-            },
-            "development": {
-              "buildTarget": "job-vacancy-training:build:development"
-            }
+            "production": { "buildTarget": "job-vacancy-training:build:production" },
+            "development": { "buildTarget": "job-vacancy-training:build:development" }
           },
           "defaultConfiguration": "development"
         },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
-        },
+        "extract-i18n": { "builder": "@angular-devkit/build-angular:extract-i18n" },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
+          "options": { "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"] }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+            "baseHref": "https://kritikos-io.github.io/Training.JobVacancy.Frontend/"
           }
         }
       }
     }
   },
-  "cli": {
-    "schematicCollections": ["angular-eslint"],
-    "analytics": false
-  }
+  "cli": { "schematicCollections": ["angular-eslint"], "analytics": false }
 }

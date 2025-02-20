@@ -1,0 +1,4 @@
+@import 'tailwindcss' prefix(aa);
+
+@config '../tailwind.config.js';
+

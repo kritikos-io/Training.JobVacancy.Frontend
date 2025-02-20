@@ -1,4 +1,3 @@
-import { AsyncPipe, JsonPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 
@@ -9,7 +8,7 @@ import { JobCardComponent } from '../../shared/ui/cards/job-card';
 @Component({
   selector: 'aa-playground',
   standalone: true,
-  imports: [JobCardComponent, CompanyCardComponent, AsyncPipe, JsonPipe],
+  imports: [JobCardComponent, CompanyCardComponent],
   templateUrl: './playground.component.html',
 })
 export class PlaygroundComponent {

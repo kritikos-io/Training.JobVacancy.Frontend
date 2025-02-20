@@ -14,7 +14,7 @@ export class NavbarComponent {
   faArrowUp = faArrowUp;
   isMenuOpen = false;
 
-  navClass = 'aa--hidden';
+  navClass = 'aa:hidden';
 
   MenuItems = [
     { title: 'Home', href: '#', active: true },
@@ -22,7 +22,8 @@ export class NavbarComponent {
     { title: 'Employers', href: '#', active: false },
     { title: 'Candidates', href: '#', active: false },
     { title: 'Pricing Plans', href: '#', active: false },
-    { title: 'Playground', href: '/playground', active: false },
+    { title: 'Superset Public', href: 'superset-public', active: false },
+    { title: 'Playground', href: 'playground', active: false },
   ];
 
   @HostListener('window:resize', ['$event'])
@@ -42,7 +43,7 @@ export class NavbarComponent {
     if (this.isMenuOpen) {
       this.navClass = '';
     } else {
-      this.navClass = 'aa--hidden';
+      this.navClass = 'aa:hidden';
     }
   }
 

@@ -1,0 +1,37 @@
+<div class="aa:size-full">
+
+  <button type="button"
+          class="focus:aa:outline-none aa:text-white aa:bg-yellow-400 hover:aa:bg-yellow-500 focusaa::ring-4 focus:aa:ring-yellow-300 aa:font-medium aa:rounded-lg aa:text-sm aa:px-5 aa:py-2.5 aa:me-2 aa:mb-2 dark:focus:aa:ring-yellow-900"
+          (click)="loadUrl('https://superset.datatest.ch/superset/dashboard/5/?standalone=1')">
+    Load Example 5
+  </button>
+
+  <button type="button"
+          class="focus:aa:outline-none aa:text-white aa:bg-yellow-400 hover:aa:bg-yellow-500 focusaa::ring-4 focus:aa:ring-yellow-300 aa:font-medium aa:rounded-lg aa:text-sm aa:px-5 aa:py-2.5 aa:me-2 aa:mb-2 dark:focus:aa:ring-yellow-900"
+          (click)="loadUrl('https://superset.datatest.ch/superset/dashboard/8/?standalone=1')">
+    Load Example 8
+  </button>
+
+  <button type="button"
+          class="focus:aa:outline-none aa:text-white aa:bg-yellow-400 hover:aa:bg-yellow-500 focusaa::ring-4 focus:aa:ring-yellow-300 aa:font-medium aa:rounded-lg aa:text-sm aa:px-5 aa:py-2.5 aa:me-2 aa:mb-2 dark:focus:aa:ring-yellow-900"
+          (click)="loadUrl('https://superset.datatest.ch/superset/dashboard/9/?standalone=1')">
+    Load Example 9
+  </button>
+
+  <button type="button"
+          class="focus:aa:outline-none aa:text-white aa:bg-yellow-400 hover:aa:bg-yellow-500 focusaa::ring-4 focus:aa:ring-yellow-300 aa:font-medium aa:rounded-lg aa:text-sm aa:px-5 aa:py-2.5 aa:me-2 aa:mb-2 dark:focus:aa:ring-yellow-900"
+          (click)="loadUrl('https://superset.datatest.ch/superset/dashboard/10/?standalone=1')">
+    Load Example 10
+  </button>
+
+  <iframe class="aa:size-full"
+          #dashboard
+          [src]="dashboardUrl">
+  </iframe>
+
+  <!-- <button class="btn btn-info ms-3"
+      (click)="sendMessage()">
+  Send Message
+</button> -->
+
+</div>
