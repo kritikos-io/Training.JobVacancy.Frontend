@@ -27,5 +27,5 @@ export class AuthGuard implements CanActivate {
         return token ? Boolean(this.authService.hasAccess(requiredRoles)) : false;
       })
     );
-    }
   }
+}
