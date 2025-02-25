@@ -11,5 +11,5 @@ export const oidcConfig = {
   logLevel: 2,
   authWellknownEndpointUrl:
     'https://auth.kritikos.io/realms/iot/.well-known/openid-configuration',
-  secureRoutes: [],
+  // secureRoutes: [],
 };
