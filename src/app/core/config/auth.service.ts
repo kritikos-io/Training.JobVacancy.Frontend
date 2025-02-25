@@ -1,38 +1,32 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { jwtDecode } from 'jwt-decode';
 
 import { User, UserRole } from '../models/role.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private data? = JSON.parse(
-    window.localStorage.getItem('0-poc-frontend-training') || ''
-  );
-  private token = this.data.authnResult.access_token;
-  private tokenData = jwtDecode<User>(this.token);
-  private resourceRoles: unknown;
+  private readonly auth = inject(OidcSecurityService);
 
-  constructor(private router: Router) {}
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private resourceRoles: any;
 
-  checkUserRole() {
-    if (this.token) {
+  private token = this.auth.getAccessToken().subscribe(token => {
+    if (token) {
       try {
-        this.resourceRoles = this.tokenData.resource_access.account.roles;
+        const tokenData = jwtDecode<User>(token);
+        this.resourceRoles = tokenData.resource_access.account.roles;
       } catch (error) {
         console.error('Invalid token:', error);
         this.router.navigate(['/error']);
       }
     }
-  }
+  });
+
+  constructor(private router: Router) {}
 
   hasAccess(requiredRoles: UserRole[]): boolean {
-    const userRoles = this.resourceRoles as UserRole[];
-    for (const role of requiredRoles) {
-      if (!userRoles.includes(role)) {
-        return false;
-      }
-    }
-    return true;
+    return requiredRoles.every(role => this.resourceRoles.includes(role));
   }
 }
