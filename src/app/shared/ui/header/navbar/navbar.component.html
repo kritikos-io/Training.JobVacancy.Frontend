@@ -4,26 +4,22 @@
     class="aa--justify-left aa--flex aa--grow aa--flex-col aa--gap-5 aa--text-gray-500 md:aa--flex md:aa--flex-row"
     [ngClass]="navClass"
   >
-    <ng-container *ngFor="let item of MenuItems; trackBy: trackByTitle">
+    <ng-container *ngFor="let item of MenuItems; let i =index">
       <div *ngIf="item.active; then content; else other"></div>
       <ng-template #content>
         <li
           class="active hover:aa--text-orange-500 [&.active]:aa--border-b-2 [&.active]:aa--border-blue-700 [&.active]:aa--font-semibold [&.active]:aa--text-blue-700"
         >
-          <a [attr.href]="item.href">
-            <button class="aa--h-full aa--w-auto aa--px-2 aa--py-3">
-              {{ item.title }}
-            </button>
-          </a>
+          <button class="aa--h-full aa--w-auto aa--px-2 aa--py-3">
+            {{ item.title }}
+          </button>
         </li>
       </ng-template>
       <ng-template #other>
         <li class="hover:aa--text-orange-500">
-          <a [attr.href]="item.href">
-            <button class="aa--h-full aa--w-auto aa--px-2 aa--py-3">
-              {{ item.title }}
-            </button>
-          </a>
+          <button class="aa--h-full aa--w-auto aa--px-2 aa--py-3" (click)="onClick(i); $event.preventDefault();">
+            {{ item.title }}
+          </button>
         </li>
       </ng-template>
     </ng-container>
