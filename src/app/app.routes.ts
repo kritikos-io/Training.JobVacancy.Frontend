@@ -20,6 +20,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/playground').then(c => c.PlaygroundComponent),
   },
   {
+    path: 'styleguide',
+    loadComponent: () => import('./features/styleguide/styleguide.component').then(c => c.StyleguideComponent),
+  },
+  {
     path: 'company/create',
     canActivate: [autoLoginPartialRoutesGuard, AuthGuard],
     data: {

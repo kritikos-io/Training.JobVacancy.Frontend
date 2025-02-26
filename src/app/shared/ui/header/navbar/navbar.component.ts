@@ -31,6 +31,7 @@ export class NavbarComponent {
     },
     { title: 'Pricing Plans', href: '#', active: false },
     { title: 'Playground', href: 'playground', active: false },
+    { title: 'Styleguide', href: 'styleguide', active: false },
   ];
 
   constructor(private router: Router) {}
