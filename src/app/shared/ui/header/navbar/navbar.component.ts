@@ -20,7 +20,15 @@ export class NavbarComponent {
     { title: 'Home', href: 'home', active: true },
     { title: 'Find Job', href: '#', active: false },
     { title: 'Employers', href: '#', active: false },
-    { title: 'Candidates', href: 'candidates', active: false },
+    {
+      title: 'Company',
+      active: false,
+      showSubmenu: false,
+      submenu: [
+        { title: 'Create Company', href: 'company/create', active: false },
+        { title: 'Show Companies', href: '#', active: false },
+      ],
+    },
     { title: 'Pricing Plans', href: '#', active: false },
     { title: 'Playground', href: 'playground', active: false },
   ];
@@ -33,6 +41,18 @@ export class NavbarComponent {
     if (windowWidth >= 768 && this.isMenuOpen) {
       this.isMenuOpen = false;
     }
+  }
+
+  toggleSubmenu(index: number) {
+    this.MenuItems.forEach((item, i) => {
+      item.showSubmenu = i === index;
+    });
+  }
+
+  closeSubmenu(index: number) {
+    setTimeout(() => {
+      this.MenuItems[index].showSubmenu = false;
+    }, 300);
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -53,14 +73,28 @@ export class NavbarComponent {
     this.handleMenu();
   }
 
-  onClick(index: number) {
-    for (const item of this.MenuItems) {
-      if (item.active) {
-        item.active = !item.active;
+  onClick(index: number, subIndex?: number) {
+    const menuItem = this.MenuItems[index];
+    if (!menuItem) return;
+
+    if (subIndex !== undefined) {
+      if (!menuItem.submenu || !menuItem.submenu[subIndex]) return;
+
+      const submenuItem = menuItem.submenu[subIndex];
+
+      this.router.navigate([submenuItem.href]);
+      menuItem.showSubmenu = false;
+      return;
+    }
+    this.MenuItems.forEach(item => (item.active = false));
+
+    if (menuItem.submenu && menuItem.submenu.length > 0) {
+      menuItem.showSubmenu = !menuItem.showSubmenu;
+    } else {
+      menuItem.active = true;
+      if (menuItem.href) {
+        this.router.navigate([menuItem.href]);
       }
     }
-    this.MenuItems[index].active = true;
-    const targetHref = this.MenuItems[index].href;
-    this.router.navigate([targetHref]);
   }
 }

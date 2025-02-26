@@ -20,13 +20,15 @@ export const routes: Routes = [
     loadComponent: () => import('./features/playground').then(c => c.PlaygroundComponent),
   },
   {
-    path: 'candidates',
+    path: 'company/create',
     canActivate: [autoLoginPartialRoutesGuard, AuthGuard],
     data: {
-      role: [UserRole.VIEW_PROFILE, UserRole.ADMIN],
+      role: [UserRole.VIEW_PROFILE],
     },
-    loadComponent: () => import('./features/candidates').then(c => c.CandidatesComponent),
+    loadComponent: () =>
+      import('./features/company-create').then(c => c.CompanyCreateComponent),
   },
+
   {
     path: 'unauthorized',
     canActivate: [],
