@@ -4,10 +4,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
-import { type JobInfo } from '../../../../core/models/job.model';
+import { JobInfo } from '../../../../core/models/job.model';
 
 @Component({
   selector: 'aa-job-card',
+  standalone: true,
   imports: [CommonModule, CurrencyPipe, FontAwesomeModule],
   templateUrl: './job-card.component.html',
 })

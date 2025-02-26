@@ -8,7 +8,6 @@ import { debounceTime, distinctUntilChanged } from 'rxjs';
   selector: 'aa-toolbar-search',
   imports: [FormsModule, FontAwesomeModule, ReactiveFormsModule],
   templateUrl: './toolbar-search.component.html',
-  styleUrl: './toolbar-search.component.scss',
 })
 export class ToolbarSearchComponent {
   selectedcountryChange = output<string>();

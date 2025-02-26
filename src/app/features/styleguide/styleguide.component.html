@@ -1,1 +1,47 @@
-<p>styleguide works!</p>
+<h1 class="aa--font-bold aa--text-lg aa--mb-2">Project Style Guide</h1>
+
+<!-- Colors Section -->
+<h2 class="aa--font-bold">Colors</h2>
+<div class="color-palette aa--mb-2">
+  <div *ngFor="let color of colors" [style.background]="color" class="color-box">
+    {{ color }}
+  </div>
+</div>
+
+<!-- Text Sizes Section -->
+<h2 class="aa--font-bold">Text Sizes</h2>
+<p *ngFor="let size of textSizes" [ngClass]="size.class">Example {{ size.size }} text</p>
+
+<!-- Button Variants -->
+<h2 class="aa--font-bold">Buttons</h2>
+<div class="btn-group aa--mb-2">
+  <button
+    class="aa--py-2 aa--px-5 aa--me-2 aa--mb-2 aa--text-sm aa--font-bold aa--text-blue-600 aa--bg-white aa--border aa--border-gray-300"
+  >
+    Sign In
+  </button>
+  <button
+    type="button"
+    class="aa--py-2 aa--px-5 aa--me-2 aa--mb-2 aa--text-sm aa--font-bold aa--text-white aa--bg-blue-600"
+  >
+    Post A Job
+  </button>
+</div>
+
+<!-- Card Variants -->
+<h2 class="aa--font-bold">Job Cards</h2>
+<div class="card-group">
+  <aa-job-card *ngFor="let card of cards" [jobData]="card" />
+</div>
+
+<h2 class="aa--font-bold">Company Cards</h2>
+<div class="card-group">
+  <aa-company-card *ngFor="let card of cards2" [companyData]="card" />
+</div>
+
+<!--//Icons
+<h2>Icons</h2>
+<div class="icon-group">
+  <aa-icon *ngFor="let icon of icons" [name]="icon" />
+</div>
+-->
