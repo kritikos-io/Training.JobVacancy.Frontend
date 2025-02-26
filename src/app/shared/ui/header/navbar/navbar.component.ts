@@ -77,16 +77,17 @@ export class NavbarComponent {
     const menuItem = this.MenuItems[index];
     if (!menuItem) return;
 
+    this.MenuItems.forEach(item => (item.active = false));
+
     if (subIndex !== undefined) {
       if (!menuItem.submenu || !menuItem.submenu[subIndex]) return;
 
       const submenuItem = menuItem.submenu[subIndex];
-
+      menuItem.active = true;
       this.router.navigate([submenuItem.href]);
       menuItem.showSubmenu = false;
       return;
     }
-    this.MenuItems.forEach(item => (item.active = false));
 
     if (menuItem.submenu && menuItem.submenu.length > 0) {
       menuItem.showSubmenu = !menuItem.showSubmenu;
