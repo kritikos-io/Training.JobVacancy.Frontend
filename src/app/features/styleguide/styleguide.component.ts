@@ -1,20 +1,31 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import { CompanyModel } from '../../core/models/company.model';
 import { JobInfo } from '../../core/models/job.model';
 import { CompanyCardComponent } from '../../shared/ui/cards/company-card';
 import { JobCardComponent } from "../../shared/ui/cards/job-card/job-card.component";
-// import { IconComponent } from '../../shared/ui/icon';
 
 
 @Component({
   selector: 'aa-styleguide',
-  imports: [CommonModule, JobCardComponent, CompanyCardComponent],
+  imports: [CommonModule, JobCardComponent, CompanyCardComponent, FontAwesomeModule],
   templateUrl: './styleguide.component.html',
   styleUrl: './styleguide.component.scss'
 })
 export class StyleguideComponent {
+
+  sectionsVisibility: Record<string, boolean> = {
+    colors: false,
+    textSizes: false,
+    buttons: false,
+    jobCards: false,
+    companyCards: false,
+    icons: false
+  };
 
   colors = ['#2A879B', '#F8FAFD', '#8ADFC4'];
   textSizes = [
@@ -71,6 +82,11 @@ export class StyleguideComponent {
     }
   ];
 
-  icons = ['home', 'settings', 'user'];
+    faMagnifyingGlass = faMagnifyingGlass;
+    faFacebook = faFacebook;
+    faInstagram = faInstagram;
 
+  toggleSection(section: string): void {
+    this.sectionsVisibility[section] = !this.sectionsVisibility[section];
+  }
 }
