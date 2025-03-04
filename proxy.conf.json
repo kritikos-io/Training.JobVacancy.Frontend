@@ -1,5 +1,5 @@
 {
-  "/api": {
+  "/api/*": {
     "target": "https://wapp-training-prod-northeu-001.azurewebsites.net",
     "secure": true,
     "changeOrigin": true,
