@@ -7,7 +7,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
   selector: 'aa-icons',
   imports: [FontAwesomeModule],
   templateUrl: './icons.component.html',
-  styleUrl: './icons.component.scss'
+  styleUrl: './icons.component.scss',
 })
 export class IconsComponent {
   faMagnifyingGlass = faMagnifyingGlass;

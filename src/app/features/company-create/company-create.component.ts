@@ -10,10 +10,10 @@ import { CompanyModel } from '../../core/models/company.model';
   imports: [ReactiveFormsModule, CommonModule, NgIf],
   templateUrl: './company-create.component.html',
 })
-export class CompanyCreateComponent implements OnInit{
+export class CompanyCreateComponent implements OnInit {
   private fb = inject(FormBuilder);
   private companyApi = inject(CompanyApiService);
-  
+
   company!: CompanyModel;
   newCompany!: FormGroup;
 

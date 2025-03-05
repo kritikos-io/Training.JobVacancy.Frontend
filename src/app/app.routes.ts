@@ -21,7 +21,8 @@ export const routes: Routes = [
     loadComponent: () => import('./features/playground').then(c => c.PlaygroundComponent),
   },
   {
-    path: 'styleguide', children: styleguideRoutes
+    path: 'styleguide',
+    children: styleguideRoutes,
   },
   {
     path: 'company/create',

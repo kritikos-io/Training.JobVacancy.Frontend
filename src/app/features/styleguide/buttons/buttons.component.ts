@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'aa-buttons',
   imports: [],
   templateUrl: './buttons.component.html',
-  styleUrl: './buttons.component.scss'
+  styleUrl: './buttons.component.scss',
 })
-export class ButtonsComponent {
-
-}
+export class ButtonsComponent {}
