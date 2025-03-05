@@ -14,7 +14,7 @@
       <div class="aa--inline-block aa--font-bold aa--me-2">
         {{ company.name }}
       </div>
-      @if (company.isFeatured) {
+      @if (company.isSponsored) {
         <div
           class="aa--inline-block aa--rounded-full aa--bg-pink-100 aa--px-3 aa--text-red-600"
         >
@@ -25,7 +25,9 @@
 
     <div class="aa--text-gray-400">
       <fa-icon [icon]="faLocationDot" class="aa--me-2" size="sm" />
-      {{ company.location }}, {{ company.country }}
+      {{ company.address.street }} {{ company.address.streetNumber }},
+      {{ company.address.postalCode }}, {{ company.address.city }},
+      {{ company.address.country }}
     </div>
   </div>
 

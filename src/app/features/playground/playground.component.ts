@@ -20,9 +20,17 @@ export class PlaygroundComponent {
 
   company1: CompanyModel = {
     name: 'Acme Inc.',
-    location: 'San Francisco, CA',
-    country: 'U.S.A.',
-    isFeatured: true,
+    website: 'site.com',
+    vat: '1512512516',
+    address: {
+      country: 'U.S.A.',
+      city: 'San Francisco',
+      street: 'Street',
+      streetNumber: '69',
+      postalCode: '42069',
+    },
+    isSponsored: true,
+    phoneNumber: '1234567890',
     openPositions: 5,
     openPositionsUrl: '#',
     logoUrl: 'logo.jpg',
@@ -30,20 +38,36 @@ export class PlaygroundComponent {
 
   company2: CompanyModel = {
     name: 'Vasko Co',
-    location: 'Athens Argyroupoli',
-    country: 'Greece',
-    isFeatured: false,
-    openPositions: 2,
+    website: 'site.com',
+    vat: '1512512516',
+    address: {
+      country: 'Greece',
+      city: 'Argyroupoli',
+      street: 'Street',
+      streetNumber: '69',
+      postalCode: '42069',
+    },
+    isSponsored: true,
+    phoneNumber: '1234567890',
+    openPositions: 5,
     openPositionsUrl: '#',
     logoUrl: 'logo.jpg',
   };
 
   company3: CompanyModel = {
     name: 'Genera Co',
-    location: 'Athens',
-    country: 'Greece',
-    isFeatured: true,
-    openPositions: 3,
+    website: 'site.com',
+    vat: '1512512516',
+    address: {
+      country: 'Greece',
+      city: 'Athens',
+      street: 'Street',
+      streetNumber: '69',
+      postalCode: '42069',
+    },
+    isSponsored: false,
+    phoneNumber: '1234567890',
+    openPositions: 5,
     openPositionsUrl: '#',
     logoUrl: 'logo.jpg',
   };

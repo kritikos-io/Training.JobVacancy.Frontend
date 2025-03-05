@@ -7,22 +7,53 @@
     <ng-container *ngFor="let item of MenuItems; let i = index">
       <div *ngIf="item.active; then content; else other"></div>
       <ng-template #content>
-        <li
-          class="active hover:aa--text-orange-500 [&.active]:aa--border-b-2 [&.active]:aa--border-blue-700 [&.active]:aa--font-semibold [&.active]:aa--text-blue-700"
-        >
-          <button class="aa--h-full aa--w-auto aa--px-2 aa--py-3">
-            {{ item.title }}
-          </button>
-        </li>
-      </ng-template>
-      <ng-template #other>
-        <li class="hover:aa--text-orange-500">
+        <li (mouseenter)="toggleSubmenu(i)">
           <button
-            class="aa--h-full aa--w-auto aa--px-2 aa--py-3"
-            (click)="onClick(i); $event.preventDefault()"
+            class="active [&.active]:aa--border-b-2 [&.active]:aa--border-blue-700 [&.active]:aa--font-semibold [&.active]:aa--text-blue-700 aa--h-full hover:aa--text-orange-500 aa--w-auto aa--px-2 aa--py-3"
+            (click)="onClick(i)"
           >
             {{ item.title }}
           </button>
+          <div (mouseleave)="closeSubmenu(i)">
+            <ul
+              *ngIf="item.submenu && item.showSubmenu"
+              class="aa--absolute aa--z-10 aa--mt-2 aa--w-48 aa--bg-white aa--border aa--rounded aa--shadow-md"
+            >
+              <li *ngFor="let subItem of item.submenu; let subIndex = index">
+                <button
+                  class="aa--block hover:aa--text-orange-500 aa--w-full aa--text-left aa--px-4 aa--py-2 hover:aa--bg-gray-200 [&.active]:aa--border-b-2 [&.active]:aa--border-blue-700 [&.active]:aa--font-semibold [&.active]:aa--text-blue-700"
+                  (click)="onClick(i, subIndex)"
+                >
+                  {{ subItem.title }}
+                </button>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ng-template>
+      <ng-template #other>
+        <li (mouseenter)="toggleSubmenu(i)">
+          <button
+            class="aa--h-full hover:aa--text-orange-500 aa--w-auto aa--px-2 aa--py-3"
+            (click)="onClick(i)"
+          >
+            {{ item.title }}
+          </button>
+          <div (mouseleave)="closeSubmenu(i)">
+            <ul
+              *ngIf="item.submenu && item.showSubmenu"
+              class="aa--absolute aa--z-10 aa--mt-2 aa--w-48 aa--bg-white aa--border aa--rounded aa--shadow-md"
+            >
+              <li *ngFor="let subItem of item.submenu; let subIndex = index">
+                <button
+                  class="aa--block hover:aa--text-orange-500 aa--w-full aa--text-left aa--px-4 aa--py-2 hover:aa--bg-gray-200 [&.active]:aa--border-b-2 [&.active]:aa--border-blue-700 [&.active]:aa--font-semibold [&.active]:aa--text-blue-700"
+                  (click)="onClick(i, subIndex)"
+                >
+                  {{ subItem.title }}
+                </button>
+              </li>
+            </ul>
+          </div>
         </li>
       </ng-template>
     </ng-container>
