@@ -3,12 +3,7 @@ import { autoLoginPartialRoutesGuard } from 'angular-auth-oidc-client';
 
 import { AuthGuard } from './core/config/auth.guard';
 import { UserRole } from './core/models';
-import { ButtonsComponent } from './features/styleguide/buttons/buttons.component';
-import { ColorsComponent } from './features/styleguide/colors/colors.component';
-import { CompanyCardsComponent } from './features/styleguide/company-cards/company-cards.component';
-import { IconsComponent } from './features/styleguide/icons/icons.component';
-import { JobCardsComponent } from './features/styleguide/job-cards/job-cards.component';
-import { TextsizesComponent } from './features/styleguide/textsizes/textsizes.component';
+import { styleguideRoutes } from './features/styleguide/styleguide.routes';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -26,16 +21,7 @@ export const routes: Routes = [
     loadComponent: () => import('./features/playground').then(c => c.PlaygroundComponent),
   },
   {
-    path: 'styleguide',
-    loadComponent: () => import('./features/styleguide/styleguide.component').then(c => c.StyleguideComponent),
-    children: [
-      { path: 'colors', component: ColorsComponent },
-      { path: 'textsizes', component: TextsizesComponent },
-      { path: 'buttons', component: ButtonsComponent },
-      { path: 'jobcards', component: JobCardsComponent },
-      { path: 'companycards', component: CompanyCardsComponent },
-      { path: 'icons', component: IconsComponent },
-    ]
+    path: 'styleguide', children: styleguideRoutes
   },
   {
     path: 'company/create',

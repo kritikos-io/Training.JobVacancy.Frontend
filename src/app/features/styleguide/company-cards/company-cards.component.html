@@ -1,3 +1,7 @@
 <div class="card-group aa--grid aa--gap-3">
-  <aa-company-card *ngFor="let card of cards" [companyData]="card" />
+  @for (card of cards; track trackByCompany) {
+    <aa-company-card [companyData]="card" />
+  } @empty {
+    <p>No companies available</p>
+  }
 </div>

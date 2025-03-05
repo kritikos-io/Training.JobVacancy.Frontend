@@ -1,4 +1,3 @@
-import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 
 import { CompanyModel } from '../../../core/models/company.model';
@@ -6,11 +5,12 @@ import { CompanyCardComponent } from '../../../shared/ui/cards/company-card';
 
 @Component({
   selector: 'aa-company-cards',
-  imports: [NgFor, CompanyCardComponent],
+  imports: [CompanyCardComponent],
   templateUrl: './company-cards.component.html',
   styleUrl: './company-cards.component.scss'
 })
 export class CompanyCardsComponent {
+
   cards: CompanyModel[] = [
     {
       name: 'Tech Corp',
@@ -31,4 +31,8 @@ export class CompanyCardsComponent {
       openPositionsUrl: 'https://codesolutions.com/jobs'
     }
   ];
+
+  trackByCompany(index: number, company: CompanyModel): string {
+    return company.name;
+  }
 }
