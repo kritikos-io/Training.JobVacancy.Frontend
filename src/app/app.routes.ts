@@ -3,6 +3,7 @@ import { autoLoginPartialRoutesGuard } from 'angular-auth-oidc-client';
 
 import { AuthGuard } from './core/config/auth.guard';
 import { UserRole } from './core/models';
+import { styleguideRoutes } from './features/styleguide/styleguide.routes';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,6 +19,10 @@ export const routes: Routes = [
       role: [UserRole.VIEW_PROFILE],
     },
     loadComponent: () => import('./features/playground').then(c => c.PlaygroundComponent),
+  },
+  {
+    path: 'styleguide',
+    children: styleguideRoutes,
   },
   {
     path: 'company/create',
