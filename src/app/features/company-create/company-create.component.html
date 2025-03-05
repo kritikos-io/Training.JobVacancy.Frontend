@@ -21,7 +21,7 @@
         type="text"
         placeholder="Company's Name"
         required
-        [ngClass]="{ 'aa--border-red-500': isFieldInvalid('name') }"
+        [class.aa--border-red-500]="isFieldInvalid('name')"
       />
       <p *ngIf="isFieldInvalid('name')" class="aa--text-red-500">Name is required.</p>
     </div>
@@ -38,7 +38,7 @@
         type="text"
         formControlName="website"
         placeholder="Company's Website URL"
-        [ngClass]="{ 'aa--border-red-500': isFieldInvalid('website') }"
+        [class.aa--border-red-500]="isFieldInvalid('website')"
       />
       <p *ngIf="isFieldInvalid('website')" class="aa--text-red-500">Enter a valid URL.</p>
     </div>
@@ -56,7 +56,7 @@
         formControlName="vat"
         placeholder="Company's VAT Number"
         required
-        [ngClass]="{ 'aa--border-red-500': isFieldInvalid('vat') }"
+        [class.aa--border-red-500]="isFieldInvalid('vat')"
       />
       <p *ngIf="isFieldInvalid('vat')" class="aa--text-red-500">VAT is required.</p>
     </div>
