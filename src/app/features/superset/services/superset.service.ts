@@ -43,17 +43,17 @@ export class SupersetService {
   #getToken(dashboardId: string) {
     //calling login to get access token
     const body: LoginRequest = {
-      password: "YOUR_PASSWORD_OF_USER_WITH_REPORT_N_EMBEDDING_PERMISSION",
+      username: "admin",
+      password: "qwer1234!",
       provider: "db",
-      refresh: true,
-      username: "YOUR_USERNAME_OF_USER_WITH_REPORT_N_EMBEDDING_PERMISSION"
+      refresh: true
     };
 
     const headers = new HttpHeaders({
       "Content-Type": "application/json"
     });
 
-    return firstValueFrom(this.#http.post<LoginResponse | LoginError>(`${environment.superset.apiUrl}/login`, body, { headers }).pipe(
+    return firstValueFrom(this.#http.post<LoginResponse | LoginError>(`${environment.superset.apiUrl}/security/login`, body, { headers }).pipe(
 
       switchMap(response => {
 
@@ -82,7 +82,7 @@ export class SupersetService {
           "Authorization": `Bearer ${response.access_token}`,
         });
 
-        return this.#http.post<GuestTokenResponse | GuestTokenError>(`${environment.superset.apiUrl}/guest_token/`, body, { headers }).pipe(
+        return this.#http.post<GuestTokenResponse | GuestTokenError>(`${environment.superset.apiUrl}/security/guest_token/`, body, { headers }).pipe(
           map(response => {
             if ('message' in response) {
               console.log(response.message)

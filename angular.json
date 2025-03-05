@@ -54,7 +54,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": { "buildTarget": "job-vacancy-training:build:production" },
-            "development": { "buildTarget": "job-vacancy-training:build:development" }
+            "development": {
+              "buildTarget": "job-vacancy-training:build:development",
+              "proxyConfig": "proxy.conf.json"
+            }
           },
           "defaultConfiguration": "development"
         },

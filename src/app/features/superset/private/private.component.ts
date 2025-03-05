@@ -16,7 +16,7 @@ export class PrivateComponent implements OnInit {
   superset = inject(SupersetService);
 
   ngOnInit() {
-    this.superset.embedDashboard('32121321', this.dashboardPlaceholder);
+    this.superset.embedDashboard('l2GPBvC_6Lg', this.dashboardPlaceholder);
   }
 
 }

@@ -1,10 +1,10 @@
 {
   "/api": {
-    "target": "https://poc.kritikos.io",
+    "target": "http://192.168.72.111:8088/api/v1",
     "secure": true,
     "changeOrigin": true,
-    "pathRewrite": {
-      "^/api": ""
-    }
+    "logLevel": "debug",
+    "csrf": false,
+    "pathRewrite": { "^/api": "" }
   }
 }
