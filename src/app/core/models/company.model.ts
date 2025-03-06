@@ -1,4 +1,5 @@
 export interface CompanyModel {
+  id: string;
   name: string;
   website: string;
   vat: string;

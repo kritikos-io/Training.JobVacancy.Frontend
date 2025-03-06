@@ -1,0 +1,28 @@
+<div *ngIf="company; else loading">
+  <h2>{{ company.name }}</h2>
+  <p>
+    <strong>Website:</strong>
+    <a [href]="company.website">{{ company.website }}</a>
+  </p>
+  <p>
+    <strong>VAT:</strong>
+    {{ company.vat }}
+  </p>
+  <p>
+    <strong>Phone Number:</strong>
+    {{ company.phoneNumber }}
+  </p>
+  <p>
+    <strong>Address:</strong>
+    {{ company.address.street }}, {{ company.address.city }},
+    {{ company.address.country }}
+  </p>
+
+  <button>Edit</button>
+  <button>Delete</button>
+</div>
+
+<!-- Loading placeholder -->
+<ng-template #loading>
+  <p>Loading company details...</p>
+</ng-template>

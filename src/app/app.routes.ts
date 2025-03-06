@@ -3,6 +3,7 @@ import { autoLoginPartialRoutesGuard } from 'angular-auth-oidc-client';
 
 import { AuthGuard } from './core/config/auth.guard';
 import { UserRole } from './core/models';
+import { CompanyDetailsComponent } from './features/company-details/company-details.component';
 import { styleguideRoutes } from './features/styleguide/styleguide.routes';
 
 export const routes: Routes = [
@@ -26,14 +27,17 @@ export const routes: Routes = [
   },
   {
     path: 'company/create',
-    canActivate: [autoLoginPartialRoutesGuard, AuthGuard],
+    //canActivate: [autoLoginPartialRoutesGuard, AuthGuard],
     data: {
       role: [UserRole.VIEW_PROFILE],
     },
     loadComponent: () =>
       import('./features/company-create').then(c => c.CompanyCreateComponent),
   },
-
+  {
+    path: 'company/:id',
+    component: CompanyDetailsComponent,
+  },
   {
     path: 'unauthorized',
     canActivate: [],
