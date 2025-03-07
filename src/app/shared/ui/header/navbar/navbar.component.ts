@@ -26,7 +26,7 @@ export class NavbarComponent {
       showSubmenu: false,
       submenu: [
         { title: 'Create Company', href: 'company/create', active: false },
-        { title: 'Show Companies', href: '#', active: false },
+        { title: 'Show Companies', href: 'company/create-material', active: false },
       ],
     },
     { title: 'Pricing Plans', href: '#', active: false },

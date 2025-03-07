@@ -33,6 +33,15 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/company-create').then(c => c.CompanyCreateComponent),
   },
+  {
+    path: 'company/create-material',
+    canActivate: [autoLoginPartialRoutesGuard, AuthGuard],
+    data: {
+      role: [UserRole.VIEW_PROFILE],
+    },
+    loadComponent: () =>
+      import('./features/create-material').then(c => c.CreateMaterialComponent),
+  },
 
   {
     path: 'unauthorized',
