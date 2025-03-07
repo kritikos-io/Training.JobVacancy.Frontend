@@ -29,9 +29,6 @@ export class CompanyApiService {
   }
 
   // Fetch a company by ID
-  // getCompanyById(companyId: string): Observable<CompanyModel> {
-  //   return this.http.get<CompanyModel>(`/api/company/${companyId}`);
-  // }
   getCompanyById(companyId: string): Observable<CompanyModel> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -39,10 +36,9 @@ export class CompanyApiService {
       // 'Authorization': `Bearer ${yourToken}`
     });
 
-    return this.http.get<CompanyModel>(`/api/company/01956bb3-2f74-73c8-b197-feacfc25a9d9`, { headers }).pipe(
+    return this.http.get<CompanyModel>(`/api/company/${companyId}`, { headers }).pipe(
       catchError((error) => {
         console.error('API Error:', error);
-        console.log(companyId);
         return throwError(() => new Error(`Failed to fetch company details: ${error.message}`));
       })
     );
