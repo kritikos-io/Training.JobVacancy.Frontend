@@ -9,6 +9,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { CompanyApiService } from '../../core/config/company-api.service';
 import { CompanyModel } from '../../core/models/company.model';
@@ -34,6 +35,7 @@ import { CompanyModel } from '../../core/models/company.model';
 export class CreateMaterialComponent implements OnInit {
   private fb = inject(FormBuilder);
   private companyApi = inject(CompanyApiService);
+  private snackBar = inject(MatSnackBar);
 
   company!: CompanyModel;
   newCompany!: FormGroup;
@@ -49,6 +51,10 @@ export class CreateMaterialComponent implements OnInit {
     }
     this.company = this.newCompany.value as CompanyModel;
     console.log('Form Submitted', this.company);
+    this.snackBar.open(`Company '${this.company.name}' has been created`, 'Ok', {
+      duration: 3000,
+      verticalPosition: 'top'
+    });
     this.newCompany.reset();
   }
 
