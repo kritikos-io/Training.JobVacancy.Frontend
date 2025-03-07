@@ -1,12 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { embedDashboard } from '@superset-ui/embedded-sdk';
-import { catchError, EMPTY, firstValueFrom, map, switchMap } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 
 import { environment } from '../../../../environments/environment.development';
+// import { CsrfTokenError, CsrfTokenResponse } from '../models/csrf-token';
+import { CsrfTokenError, CsrfTokenResponse } from '../models/csrf-token';
 import { GuestTokenError, GuestTokenRequest, GuestTokenResponse } from '../models/guest-token';
 import { LoginError, LoginRequest, LoginResponse } from '../models/login';
-
 
 @Injectable({
   providedIn: 'root'
@@ -21,11 +22,13 @@ export class SupersetService {
       id: dashboardId,
       supersetDomain: environment.superset.Url,
       mountPoint: placeholder,
+      debug: true,
+      iframeTitle: "Superset Embedded Dashboard",
       fetchGuestToken: () => this.#getToken(dashboardId),
       dashboardUiConfig: {
-        hideTitle: true,
-        hideChartControls: true,
-        hideTab: true,
+        hideTitle: false,
+        hideChartControls: false,
+        hideTab: false,
         filters: {
           visible: false,
           expanded: false
@@ -37,66 +40,81 @@ export class SupersetService {
 
         }
       },
-    })
-  };
+    });
+  }
 
-  #getToken(dashboardId: string) {
-    //calling login to get access token
+  async #getToken(dashboardId: string) {
+
+    const loginResponse = await this.#login();
+
+    if ('message' in loginResponse) {
+      console.log(loginResponse.message)
+      return '';
+    }
+
+    const csrfResponse = await this.#getCsrf(loginResponse.access_token);
+
+    if ('message' in csrfResponse) {
+      console.log(csrfResponse.message)
+      return '';
+    }
+
+    const guestTokenResponse = await this.#getGuestToken(dashboardId, loginResponse.access_token, csrfResponse.resulr);
+
+    if ('message' in guestTokenResponse) {
+      console.log(guestTokenResponse.message)
+      return '';
+    }
+
+    return guestTokenResponse.token;
+
+  }
+
+  async #login() {
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json"
+    });
     const body: LoginRequest = {
       username: "admin",
       password: "qwer1234!",
       provider: "db",
       refresh: true
     };
+    return firstValueFrom(this.#http.post<LoginResponse | LoginError>(`${environment.superset.apiUrl}/security/login`, body, { headers }));
+  }
 
+  async #getCsrf(access_token: string) {
     const headers = new HttpHeaders({
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${access_token}`,
     });
 
-    return firstValueFrom(this.#http.post<LoginResponse | LoginError>(`${environment.superset.apiUrl}/security/login`, body, { headers }).pipe(
+    return firstValueFrom(this.#http.get<CsrfTokenResponse | CsrfTokenError>(`${environment.superset.apiUrl}/security/csrf_token/`, { headers }));
+  }
 
-      switchMap(response => {
+  async #getGuestToken(dashboardId: string, access_token: string, csrf: string) {
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${access_token}`,
+      "X-CSRFToken": csrf,
+    });
 
-        if ('message' in response) {
-          console.log(response.message)
-          return EMPTY;
+    const body: GuestTokenRequest = {
+      resources: [
+        {
+          id: dashboardId,
+          type: "dashboard"
         }
+      ],
+      rls: [],
+      user: {
+        username: "report-viewer",
+        first_name: "report-viewer",
+        last_name: "report-viewer",
+      }
+    };
 
-        const body: GuestTokenRequest = {
-          resources: [
-            {
-              id: dashboardId,
-              type: "dashboard"
-            }
-          ],
-          rls: [],
-          user: {
-            username: "report-viewer",
-            first_name: "report-viewer",
-            last_name: "report-viewer",
-          }
-        };
-
-        const headers = new HttpHeaders({
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${response.access_token}`,
-        });
-
-        return this.#http.post<GuestTokenResponse | GuestTokenError>(`${environment.superset.apiUrl}/security/guest_token/`, body, { headers }).pipe(
-          map(response => {
-            if ('message' in response) {
-              console.log(response.message)
-              return '';
-            }
-            return response.token;
-          })
-        );
-      }),
-      catchError((error) => {
-        console.error(error);
-        return EMPTY;
-      }),
-    ));
+    return firstValueFrom(this.#http.post<GuestTokenResponse | GuestTokenError>(`${environment.superset.apiUrl}/security/guest_token/`, body, { headers }));
   }
 
 }

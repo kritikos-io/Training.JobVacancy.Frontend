@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, viewChild } from '@angular/core';
 
 import { SupersetService } from '../services/superset.service';
 
@@ -8,15 +8,20 @@ import { SupersetService } from '../services/superset.service';
   templateUrl: './private.component.html',
   styleUrl: './private.component.css'
 })
-export class PrivateComponent implements OnInit {
+export class PrivateComponent implements AfterViewInit {
 
-
-  dashboardPlaceholder = document.getElementById('superset_embedding_div_class')!;
+  dashboardPlaceholder = viewChild.required<ElementRef<HTMLElement>>('dashboard');
+  // dashboardPlaceholder = document.getElementById('dashboard')!;
 
   superset = inject(SupersetService);
 
-  ngOnInit() {
-    this.superset.embedDashboard('l2GPBvC_6Lg', this.dashboardPlaceholder);
+  ngAfterViewInit() {
+    console.log('HTML Element', this.dashboardPlaceholder().nativeElement);
+    this.superset.embedDashboard('9992d759-90d7-4d2a-b34d-373a8aaa9889', this.dashboardPlaceholder()?.nativeElement)
+      // this.superset.embedDashboard('9992d759-90d7-4d2a-b34d-373a8aaa9889', this.dashboardPlaceholder)
+      .then(result => console.log('Embedding result', result))
+      .catch(error => console.error('Embedding error', error));
+
   }
 
 }
