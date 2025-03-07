@@ -12,6 +12,7 @@ import { CompanyCardComponent } from '../../../shared/ui/cards/company-card';
 export class CompanyCardsComponent {
   cards: CompanyModel[] = [
     {
+      id: 'unknown',
       name: 'Tech Corp',
       website: 'https://techcorp.com',
       vat: 'GR123456789',
@@ -29,6 +30,7 @@ export class CompanyCardsComponent {
       openPositionsUrl: 'https://techcorp.com/careers',
     },
     {
+      id: 'unknown2',
       name: 'Code Solutions',
       website: 'https://codesolutions.com',
       vat: 'GR987654321',

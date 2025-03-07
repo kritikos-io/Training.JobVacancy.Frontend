@@ -9,7 +9,7 @@ import { JobCardComponent } from '../../shared/ui/cards/job-card';
 @Component({
   selector: 'aa-playground',
   standalone: true,
-  imports: [JobCardComponent, CompanyCardComponent, AsyncPipe, JsonPipe],
+  imports: [JobCardComponent, AsyncPipe, JsonPipe, CompanyCardComponent],
   templateUrl: './playground.component.html',
 })
 export class PlaygroundComponent {
@@ -19,6 +19,7 @@ export class PlaygroundComponent {
   isAuthenticated$ = this.auth.isAuthenticated$;
 
   company1: CompanyModel = {
+    id: '12345',
     name: 'Acme Inc.',
     website: 'site.com',
     vat: '1512512516',
@@ -37,6 +38,7 @@ export class PlaygroundComponent {
   };
 
   company2: CompanyModel = {
+    id: '452136',
     name: 'Vasko Co',
     website: 'site.com',
     vat: '1512512516',
@@ -55,6 +57,7 @@ export class PlaygroundComponent {
   };
 
   company3: CompanyModel = {
+    id: '2369874',
     name: 'Genera Co',
     website: 'site.com',
     vat: '1512512516',

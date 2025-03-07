@@ -9,6 +9,7 @@ import {
   withAppInitializerAuthCheck,
   authInterceptor,
 } from 'angular-auth-oidc-client';
+import { provideToastr } from 'ngx-toastr';
 
 import { routes } from './app.routes';
 import { oidcConfig } from './core/config';
@@ -25,7 +26,14 @@ export const appConfig: ApplicationConfig = {
       },
       withAppInitializerAuthCheck()
     ),
-
+    provideToastr(
+      {
+        timeOut: 10000,
+        positionClass: 'toast-top-right',
+        preventDuplicates: true,
+        closeButton: true,
+      }
+    ),
     {
       provide: AbstractSecurityStorage,
       useClass: DefaultLocalStorageService,
