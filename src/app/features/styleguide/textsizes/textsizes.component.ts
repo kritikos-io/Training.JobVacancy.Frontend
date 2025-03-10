@@ -9,8 +9,8 @@ import { Component } from '@angular/core';
 })
 export class TextsizesComponent {
   textSizes = [
-    { size: 'small', class: 'aa--text-sm' },
-    { size: 'medium', class: 'aa--text-base' },
-    { size: 'large', class: 'aa--text-lg' },
+    { size: 'small', class: 'aa:text-sm' },
+    { size: 'medium', class: 'aa:text-base' },
+    { size: 'large', class: 'aa:text-lg' },
   ];
 }

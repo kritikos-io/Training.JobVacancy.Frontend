@@ -1,7 +1,7 @@
-<div class="card-group aa--grid aa--gap-3">
+<div class="card-group aa:grid aa:gap-3">
   @for (card of cards; track trackByCompany) {
-    <aa-company-card [companyData]="card" />
+  <aa-company-card [companyData]="card" />
   } @empty {
-    <p>No companies available</p>
+  <p>No companies available</p>
   }
 </div>

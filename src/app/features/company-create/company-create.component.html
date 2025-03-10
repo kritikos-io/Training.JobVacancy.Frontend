@@ -1,200 +1,155 @@
 <div
-  class="aa--rounded aa--text-start aa--px-8 aa--pt-6 aa--pb-8 aa--mb-4 aa--bg-gray-100 aa--w-full aa--max-w-2xl aa--text-center aa--border aa--rounded aa--border-gray-200 aa--flex-column"
->
-  <div
-    class="aa--text-black aa--text-2xl aa--align-text-top aa--font-bold aa--origin-center"
-  >
+     class="aa:px-8 aa:pt-6 aa:pb-8 aa:mb-4 aa:bg-gray-100 aa:w-full aa:max-w-2xl aa:text-center aa:border aa:rounded aa:border-gray-200 aa:flex-column">
+  <div class="aa:text-black aa:text-2xl aa:align-text-top aa:font-bold aa:origin-center">
     Add a new company
   </div>
-  <form [formGroup]="newCompany" (ngSubmit)="onSubmit()">
-    <div class="aa--mb-4">
-      <label
-        class="aa--block aa--text-gray-700 aa--text-lg aa--font-bold aa--mb-2"
-        for="name"
-      >
+  <form [formGroup]="newCompany"
+        (ngSubmit)="onSubmit()">
+    <div class="aa:mb-4">
+      <label class="aa:block aa:text-gray-700 aa:text-lg aa:font-bold aa:mb-2"
+             for="name">
         Name
       </label>
-      <input
-        class="aa--appearance-none aa--border aa--rounded aa--w-full aa--py-2 aa--px-3 aa--text-gray-700 aa--leading-tight focus:aa--outline-none focus:aa--shadow-outline"
-        id="name"
-        formControlName="name"
-        type="text"
-        placeholder="Company's Name"
-        required
-        [class.aa--border-red-500]="isFieldInvalid('name')"
-      />
-      <p *ngIf="isFieldInvalid('name')" class="aa--text-red-500">Name is required.</p>
+      <input class="aa:appearance-none aa:border aa:rounded aa:w-full aa:py-2 aa:px-3 aa:text-gray-700 aa:leading-tight focus:aa:outline-none focus:aa:shadow-outline"
+             id="name"
+             formControlName="name"
+             type="text"
+             placeholder="Company's Name"
+             required
+             [class.aa:border-red-500]="isFieldInvalid('name')" />
+      <p *ngIf="isFieldInvalid('name')"
+         class="aa:text-red-500">Name is required.</p>
     </div>
-    <div class="aa--mb-4">
-      <label
-        class="aa--block aa--text-gray-700 aa--text-lg aa--font-bold aa--mb-2"
-        for="website"
-      >
+    <div class="aa:mb-4">
+      <label class="aa:block aa:text-gray-700 aa:text-lg aa:font-bold aa:mb-2"
+             for="website">
         Website
       </label>
-      <input
-        class="aa--appearance-none aa--border aa--rounded aa--w-full aa--py-2 aa--px-3 aa--text-gray-700 aa--leading-tight focus:aa--outline-none focus:aa--shadow-outline"
-        id="website"
-        type="text"
-        formControlName="website"
-        placeholder="Company's Website URL"
-        [class.aa--border-red-500]="isFieldInvalid('website')"
-      />
-      <p *ngIf="isFieldInvalid('website')" class="aa--text-red-500">Enter a valid URL.</p>
+      <input class="aa:appearance-none aa:border aa:rounded aa:w-full aa:py-2 aa:px-3 aa:text-gray-700 aa:leading-tight focus:aa:outline-none focus:aa:shadow-outline"
+             id="website"
+             type="text"
+             formControlName="website"
+             placeholder="Company's Website URL"
+             [class.aa:border-red-500]="isFieldInvalid('website')" />
+      <p *ngIf="isFieldInvalid('website')"
+         class="aa:text-red-500">Enter a valid URL.</p>
     </div>
-    <div class="aa--mb-4">
-      <label
-        class="aa--block aa--text-gray-700 aa--text-lg aa--font-bold aa--mb-2"
-        for="vat"
-      >
+    <div class="aa:mb-4">
+      <label class="aa:block aa:text-gray-700 aa:text-lg aa:font-bold aa:mb-2"
+             for="vat">
         VAT
       </label>
-      <input
-        class="aa--appearance-none aa--border aa--rounded aa--w-full aa--py-2 aa--px-3 aa--text-gray-700 aa--leading-tight focus:aa--outline-none focus:aa--shadow-outline"
-        id="vat"
-        type="text"
-        formControlName="vat"
-        placeholder="Company's VAT Number"
-        required
-        [class.aa--border-red-500]="isFieldInvalid('vat')"
-      />
-      <p *ngIf="isFieldInvalid('vat')" class="aa--text-red-500">VAT is required.</p>
+      <input class="aa:appearance-none aa:border aa:rounded aa:w-full aa:py-2 aa:px-3 aa:text-gray-700 aa:leading-tight focus:aa:outline-none focus:aa:shadow-outline"
+             id="vat"
+             type="text"
+             formControlName="vat"
+             placeholder="Company's VAT Number"
+             required
+             [class.aa:border-red-500]="isFieldInvalid('vat')" />
+      <p *ngIf="isFieldInvalid('vat')"
+         class="aa:text-red-500">VAT is required.</p>
     </div>
-    <div class="aa--mb-4">
-      <label
-        class="aa--block aa--text-gray-700 aa--text-lg aa--font-bold aa--mb-2"
-        for="logoUrl"
-      >
+    <div class="aa:mb-4">
+      <label class="aa:block aa:text-gray-700 aa:text-lg aa:font-bold aa:mb-2"
+             for="logoUrl">
         Company Logo
       </label>
-      <input
-        class="aa--appearance-none aa--border aa--rounded aa--w-full aa--py-2 aa--px-3 aa--text-gray-700 aa--leading-tight focus:aa--outline-none focus:aa--shadow-outline"
-        id="logoUrl"
-        type="file"
-        formControlName="logoUrl"
-        accept="image/jpeg, image/png image/icon"
-      />
+      <input class="aa:appearance-none aa:border aa:rounded aa:w-full aa:py-2 aa:px-3 aa:text-gray-700 aa:leading-tight focus:aa:outline-none focus:aa:shadow-outline"
+             id="logoUrl"
+             type="file"
+             formControlName="logoUrl"
+             accept="image/jpeg, image/png image/icon" />
     </div>
-    <div class="aa--mb-4" formGroupName="address">
-      <label
-        class="aa--block aa--text-gray-700 aa--text-lg aa--font-bold aa--mb-2"
-        for="country"
-      >
+    <div class="aa:mb-4"
+         formGroupName="address">
+      <label class="aa:block aa:text-gray-700 aa:text-lg aa:font-bold aa:mb-2"
+             for="country">
         Country
       </label>
-      <input
-        class="aa--appearance-none aa--border aa--rounded aa--w-full aa--py-2 aa--px-3 aa--text-gray-700 aa--leading-tight focus:aa--outline-none focus:aa--shadow-outline"
-        id="country"
-        type="text"
-        formControlName="country"
-        placeholder="Company's Country"
-      />
-      <label
-        class="aa--block aa--text-gray-700 aa--text-lg aa--font-bold aa--mb-2"
-        for="city"
-      >
+      <input class="aa:appearance-none aa:border aa:rounded aa:w-full aa:py-2 aa:px-3 aa:text-gray-700 aa:leading-tight focus:aa:outline-none focus:aa:shadow-outline"
+             id="country"
+             type="text"
+             formControlName="country"
+             placeholder="Company's Country" />
+      <label class="aa:block aa:text-gray-700 aa:text-lg aa:font-bold aa:mb-2"
+             for="city">
         City
       </label>
-      <input
-        class="aa--appearance-none aa--border aa--rounded aa--w-full aa--py-2 aa--px-3 aa--text-gray-700 aa--leading-tight focus:aa--outline-none focus:aa--shadow-outline"
-        id="city"
-        type="text"
-        formControlName="city"
-        placeholder="Company's City"
-      />
-      <label
-        class="aa--block aa--text-gray-700 aa--text-lg aa--font-bold aa--mb-2"
-        for="street"
-      >
+      <input class="aa:appearance-none aa:border aa:rounded aa:w-full aa:py-2 aa:px-3 aa:text-gray-700 aa:leading-tight focus:aa:outline-none focus:aa:shadow-outline"
+             id="city"
+             type="text"
+             formControlName="city"
+             placeholder="Company's City" />
+      <label class="aa:block aa:text-gray-700 aa:text-lg aa:font-bold aa:mb-2"
+             for="street">
         Street Name
       </label>
-      <input
-        class="aa--appearance-none aa--border aa--rounded aa--w-full aa--py-2 aa--px-3 aa--text-gray-700 aa--leading-tight focus:aa--outline-none focus:aa--shadow-outline"
-        id="street"
-        type="text"
-        formControlName="street"
-        placeholder="Company's Street Name"
-      />
-      <label
-        class="aa--block aa--text-gray-700 aa--text-lg aa--font-bold aa--mb-2"
-        for="steetNumber"
-      >
+      <input class="aa:appearance-none aa:border aa:rounded aa:w-full aa:py-2 aa:px-3 aa:text-gray-700 aa:leading-tight focus:aa:outline-none focus:aa:shadow-outline"
+             id="street"
+             type="text"
+             formControlName="street"
+             placeholder="Company's Street Name" />
+      <label class="aa:block aa:text-gray-700 aa:text-lg aa:font-bold aa:mb-2"
+             for="steetNumber">
         Street Number
       </label>
-      <input
-        class="aa--appearance-none aa--border aa--rounded aa--w-full aa--py-2 aa--px-3 aa--text-gray-700 aa--leading-tight focus:aa--outline-none focus:aa--shadow-outline"
-        id="steetNumber"
-        type="text"
-        formControlName="streetNumber"
-        placeholder="Company's Street Number"
-      />
-      <label
-        class="aa--block aa--text-gray-700 aa--text-lg aa--font-bold aa--mb-2"
-        for="postalCode"
-      >
+      <input class="aa:appearance-none aa:border aa:rounded aa:w-full aa:py-2 aa:px-3 aa:text-gray-700 aa:leading-tight focus:aa:outline-none focus:aa:shadow-outline"
+             id="steetNumber"
+             type="text"
+             formControlName="streetNumber"
+             placeholder="Company's Street Number" />
+      <label class="aa:block aa:text-gray-700 aa:text-lg aa:font-bold aa:mb-2"
+             for="postalCode">
         Postal Code
       </label>
-      <input
-        class="aa--appearance-none aa--border aa--rounded aa--w-full aa--py-2 aa--px-3 aa--text-gray-700 aa--leading-tight focus:aa--outline-none focus:aa--shadow-outline"
-        id="postalCode"
-        type="text"
-        formControlName="postalCode"
-        placeholder="Company's Postal Code"
-      />
+      <input class="aa:appearance-none aa:border aa:rounded aa:w-full aa:py-2 aa:px-3 aa:text-gray-700 aa:leading-tight focus:aa:outline-none focus:aa:shadow-outline"
+             id="postalCode"
+             type="text"
+             formControlName="postalCode"
+             placeholder="Company's Postal Code" />
     </div>
-    <div class="aa--mb-4">
-      <label
-        class="aa--block aa--text-gray-700 aa--text-lg aa--font-bold aa--mb-2"
-        for="isSponsored"
-      >
+    <div class="aa:mb-4">
+      <label class="aa:block aa:text-gray-700 aa:text-lg aa:font-bold aa:mb-2"
+             for="isSponsored">
         Is the job ad sponsored?
       </label>
-      <div class="aa--flex aa--gap-4">
-        <label class="aa--inline-flex aa--items-center">
-          <input
-            type="radio"
-            formControlName="isSponsored"
-            required
-            value="true"
-            class="aa--mr-2"
-          />
+      <div class="aa:flex aa:gap-4">
+        <label class="aa:inline-flex aa:items-center">
+          <input type="radio"
+                 formControlName="isSponsored"
+                 required
+                 value="true"
+                 class="aa:mr-2" />
           Yes
         </label>
-        <label class="aa--inline-flex aa--items-center">
-          <input
-            type="radio"
-            formControlName="isSponsored"
-            required
-            value="false"
-            class="aa--mr-2"
-          />
+        <label class="aa:inline-flex aa:items-center">
+          <input type="radio"
+                 formControlName="isSponsored"
+                 required
+                 value="false"
+                 class="aa:mr-2" />
           No
         </label>
-        <p *ngIf="isFieldInvalid('isSponsored')" class="aa--text-red-500">
+        <p *ngIf="isFieldInvalid('isSponsored')"
+           class="aa:text-red-500">
           You must pick a choice.
         </p>
       </div>
     </div>
-    <div class="aa--mb-4">
-      <label
-        class="aa--block aa--text-gray-700 aa--text-lg aa--font-bold aa--mb-2"
-        for="phoneNumber"
-      >
+    <div class="aa:mb-4">
+      <label class="aa:block aa:text-gray-700 aa:text-lg aa:font-bold aa:mb-2"
+             for="phoneNumber">
         Phone number
       </label>
-      <input
-        class="aa--appearance-none aa--border aa--rounded aa--w-full aa--py-2 aa--px-3 aa--text-gray-700 aa--leading-tight focus:aa--outline-none focus:aa--shadow-outline"
-        id="phoneNumber"
-        type="text"
-        formControlName="phoneNumber"
-        placeholder="Company's Phone Number"
-      />
+      <input class="aa:appearance-none aa:border aa:rounded aa:w-full aa:py-2 aa:px-3 aa:text-gray-700 aa:leading-tight focus:aa:outline-none focus:aa:shadow-outline"
+             id="phoneNumber"
+             type="text"
+             formControlName="phoneNumber"
+             placeholder="Company's Phone Number" />
     </div>
-    <button
-      type="submit"
-      [disabled]="newCompany.invalid"
-      class="aa--justify-self-center hover:aa--bg-gray-200 aa--border aa--rounded aa--w-lg aa--py-2 aa--px-3 aa--text-gray-700 aa--leading-tight focus:aa--outline-none focus:aa--shadow-outline"
-    >
+    <button type="submit"
+            [disabled]="newCompany.invalid"
+            class="aa:justify-self-center hover:aa:bg-gray-200 aa:border aa:rounded aa:w-lg aa:py-2 aa:px-3 aa:text-gray-700 aa:leading-tight focus:aa:outline-none focus:aa:shadow-outline">
       Submit
     </button>
   </form>

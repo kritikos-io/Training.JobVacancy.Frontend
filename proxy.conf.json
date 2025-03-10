@@ -1,5 +1,5 @@
 {
-  "/api/*": {
+  "/api": {
     "target": "https://wapp-training-prod-northeu-001.azurewebsites.net",
     "secure": true,
     "changeOrigin": true,
@@ -7,12 +7,14 @@
       "^/api": "/api/v2"
     }
   },
-  "/kritikos-api": {
-    "target": "https://poc.kritikos.io",
+  "/superset-api": {
+    "target": "http://192.168.72.111:8088/api/v1",
     "secure": true,
     "changeOrigin": true,
+    "logLevel": "debug",
+    "csrf": false,
     "pathRewrite": {
-      "^/kritikos-api": ""
+      "^/superset-api": ""
     }
   }
 }

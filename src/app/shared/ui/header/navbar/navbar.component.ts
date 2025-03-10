@@ -12,9 +12,9 @@ import { faBars, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 export class NavbarComponent {
   faBars = faBars;
   faArrowUp = faArrowUp;
-  isMenuOpen = false;
+  isMenuOpen = true;
 
-  navClass = 'aa--hidden';
+  navClass = 'aa:hidden';
 
   MenuItems = [
     { title: 'Home', href: 'home', active: true },
@@ -30,11 +30,13 @@ export class NavbarComponent {
       ],
     },
     { title: 'Pricing Plans', href: '#', active: false },
+    { title: 'Superset Public', href: 'superset-public', active: false },
+    { title: 'Superset Private', href: 'superset-private', active: false },
     { title: 'Playground', href: 'playground', active: false },
     { title: 'Styleguide', href: 'styleguide', active: false },
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
@@ -65,7 +67,7 @@ export class NavbarComponent {
     if (this.isMenuOpen) {
       this.navClass = '';
     } else {
-      this.navClass = 'aa--hidden';
+      this.navClass = 'aa:hidden';
     }
   }
 
