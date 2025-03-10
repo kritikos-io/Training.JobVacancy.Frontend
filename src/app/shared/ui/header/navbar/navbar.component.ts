@@ -12,7 +12,7 @@ import { faBars, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 export class NavbarComponent {
   faBars = faBars;
   faArrowUp = faArrowUp;
-  isMenuOpen = false;
+  isMenuOpen = true;
 
   navClass = 'aa:hidden';
 

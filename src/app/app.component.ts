@@ -1,19 +1,21 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+import { FooterComponent } from './shared/ui/footer';
 import { HeaderComponent } from './shared/ui/header';
 
 @Component({
   selector: 'aa-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   template: `
-  <div class="aa:flex aa:flex-col aa:h-screen">
-      <aa-header/>
-      <div class="aa:grow">
-        <router-outlet />
+ <div class="content">
+      <aa-header />
+      <div class="main-content">
+        <main><router-outlet /></main>
+        <aa-footer />
       </div>
-  </div>
+    </div>
   `,
   styleUrls: ['./app.component.scss'],
 })

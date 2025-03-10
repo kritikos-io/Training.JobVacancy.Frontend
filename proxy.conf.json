@@ -7,12 +7,14 @@
       "^/api": "/api/v2"
     }
   },
-  "/kritikos-api": {
+  "/superset-api": {
     "target": "http://192.168.72.111:8088/api/v1",
     "secure": true,
     "changeOrigin": true,
     "logLevel": "debug",
     "csrf": false,
-    "pathRewrite": { "^/api": "" }
+    "pathRewrite": {
+      "^/superset-api": ""
+    }
   }
 }
