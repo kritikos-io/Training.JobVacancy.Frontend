@@ -1,5 +1,13 @@
 {
   "/api": {
+    "target": "https://wapp-training-prod-northeu-001.azurewebsites.net",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api/v2"
+    }
+  },
+  "/kritikos-api": {
     "target": "http://192.168.72.111:8088/api/v1",
     "secure": true,
     "changeOrigin": true,
