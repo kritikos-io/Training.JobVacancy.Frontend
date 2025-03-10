@@ -1,63 +1,51 @@
-<h1 class="aa--font-bold aa--text-lg aa--mb-2">Various Project Styles</h1>
-<div class="aa--flex aa--gap-2 aa--py-4 aa--px-2 aa--justify-start aa--bg-gray-100">
-  <div class="aa--w-1/3 aa--border-e-2 aa--leading-10 aa--text-wrap">
+<h1 class="aa:font-bold aa:text-lg aa:mb-2">Various Project Styles</h1>
+<div class="aa:flex aa:gap-2 aa:py-4 aa:px-2 aa:justify-start aa:bg-gray-100">
+  <div class="aa:w-1/3 aa:border-e-2 aa:leading-10 aa:text-wrap">
     <!-- Colors Section -->
-    <h2
-      class="aa--cursor-pointer aa--font-bold aa--underline"
-      [routerLink]="['colors']"
-      routerLinkActive="aa--text-blue-600"
-    >
+    <h2 class="aa:cursor-pointer aa:font-bold aa:underline"
+        [routerLink]="['colors']"
+        routerLinkActive="aa:text-blue-600">
       Colors
     </h2>
 
     <!-- Text Sizes Section -->
-    <h2
-      class="aa--cursor-pointer aa--font-bold aa--underline"
-      [routerLink]="['textsizes']"
-      routerLinkActive="aa--text-blue-600"
-    >
+    <h2 class="aa:cursor-pointer aa:font-bold aa:underline"
+        [routerLink]="['textsizes']"
+        routerLinkActive="aa:text-blue-600">
       Text Sizes
     </h2>
 
     <!-- Button Variants -->
-    <h2
-      class="aa--cursor-pointer aa--font-bold aa--underline"
-      [routerLink]="['buttons']"
-      routerLinkActive="aa--text-blue-600"
-    >
+    <h2 class="aa:cursor-pointer aa:font-bold aa:underline"
+        [routerLink]="['buttons']"
+        routerLinkActive="aa:text-blue-600">
       Buttons
     </h2>
 
     <!-- Card Variants -->
     <!-- 1. Job Cards  -->
-    <h2
-      class="aa--cursor-pointer aa--font-bold aa--underline"
-      [routerLink]="['jobcards']"
-      routerLinkActive="aa--text-blue-600"
-    >
+    <h2 class="aa:cursor-pointer aa:font-bold aa:underline"
+        [routerLink]="['jobcards']"
+        routerLinkActive="aa:text-blue-600">
       Job Cards
     </h2>
 
     <!-- 2. Company Cards  -->
-    <h2
-      class="aa--cursor-pointer aa--font-bold aa--underline"
-      [routerLink]="['companycards']"
-      routerLinkActive="aa--text-blue-600"
-    >
+    <h2 class="aa:cursor-pointer aa:font-bold aa:underline"
+        [routerLink]="['companycards']"
+        routerLinkActive="aa:text-blue-600">
       Company Cards
     </h2>
 
     <!-- Icons -->
-    <h2
-      class="aa--cursor-pointer aa--font-bold aa--underline"
-      [routerLink]="['icons']"
-      routerLinkActive="aa--text-blue-600"
-    >
+    <h2 class="aa:cursor-pointer aa:font-bold aa:underline"
+        [routerLink]="['icons']"
+        routerLinkActive="aa:text-blue-600">
       Icons
     </h2>
   </div>
 
-  <div class="aa--flex aa--items-center aa--justify-center aa--w-2/3">
+  <div class="aa:flex aa:items-center aa:justify-center aa:w-2/3">
     <router-outlet />
   </div>
 </div>
