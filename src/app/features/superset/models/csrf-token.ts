@@ -1,6 +1,6 @@
 
 export interface CsrfTokenResponse {
-  resulr: string
+  result: string
 }
 
 export interface CsrfTokenError {

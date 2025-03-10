@@ -3,8 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { embedDashboard } from '@superset-ui/embedded-sdk';
 import { firstValueFrom } from 'rxjs';
 
-import { environment } from '../../../../environments/environment.development';
-// import { CsrfTokenError, CsrfTokenResponse } from '../models/csrf-token';
+import { environment } from '../../../../environments/environment';
 import { CsrfTokenError, CsrfTokenResponse } from '../models/csrf-token';
 import { GuestTokenError, GuestTokenRequest, GuestTokenResponse } from '../models/guest-token';
 import { LoginError, LoginRequest, LoginResponse } from '../models/login';
@@ -37,7 +36,6 @@ export class SupersetService {
           standalone: "1",
           show_filters: "0",
           show_native_filters: "0"
-
         }
       },
     });
@@ -59,7 +57,7 @@ export class SupersetService {
       return '';
     }
 
-    const guestTokenResponse = await this.#getGuestToken(dashboardId, loginResponse.access_token, csrfResponse.resulr);
+    const guestTokenResponse = await this.#getGuestToken(dashboardId, loginResponse.access_token, csrfResponse.result);
 
     if ('message' in guestTokenResponse) {
       console.log(guestTokenResponse.message)
