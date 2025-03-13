@@ -1,0 +1,114 @@
+<form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+  <div class="aa--card aa--flex aa--justify-end">
+    <p-button label="Toggle Dark Mode" (onClick)="toggleDarkMode()" />
+  </div>
+
+  <div class="aa--mt-6 aa--flex aa--flex-col">
+    <div class="aa--mt-4">
+      <label for="company_info">Company Info</label>
+      <div
+        id="company_info"
+        class="aa--border aa--mt-1 aa--flex aa--gap-2 aa--justify-middle"
+      >
+        <p-floatlabel variant="on" class="aa--m-4">
+          <input pInputText id="name" formControlName="name" autocomplete="off" />
+          <label for="name">Name</label>
+        </p-floatlabel>
+        <p-floatlabel variant="on" class="aa--m-4">
+          <input pInputText id="website" formControlName="website" autocomplete="off" />
+          <label for="website">Website</label>
+        </p-floatlabel>
+        <p-floatlabel variant="on" class="aa--m-4">
+          <input pInputText id="vat" formControlName="vat" autocomplete="off" />
+          <label for="vat">VAT</label>
+        </p-floatlabel>
+      </div>
+    </div>
+
+    <div class="aa--mt-4">
+      <label for="company_address">Company Address</label>
+      <div id="company_address" class="aa--border aa--mt-1 aa--flex aa--gap-2">
+        <p-floatlabel variant="on" class="aa--m-4">
+          <input pInputText id="country" formControlName="country" autocomplete="off" />
+          <label for="country">Country</label>
+        </p-floatlabel>
+        <p-floatlabel variant="on" class="aa--m-4">
+          <input pInputText id="city" formControlName="city" autocomplete="off" />
+          <label for="city">City</label>
+        </p-floatlabel>
+        <p-floatlabel variant="on" class="aa--m-4">
+          <input pInputText id="street" formControlName="street" autocomplete="off" />
+          <label for="street">Street</label>
+        </p-floatlabel>
+        <p-floatlabel variant="on" class="aa--m-4">
+          <input
+            pInputText
+            id="street_number"
+            formControlName="streetNumber"
+            autocomplete="off"
+          />
+          <label for="street_number">Street Number</label>
+        </p-floatlabel>
+        <p-floatlabel variant="on" class="aa--m-4">
+          <input
+            pInputText
+            id="postal_code"
+            formControlName="postalCode"
+            autocomplete="off"
+          />
+          <label for="postal_code">Postal Code</label>
+        </p-floatlabel>
+      </div>
+    </div>
+
+    <div class="aa--mt-4">
+      <label for="company_other">Other Company Info</label>
+      <div id="company_other" class="aa--border aa--mt-1 aa--flex aa--gap-2">
+        <p-floatlabel variant="on" class="aa--m-4">
+          <input
+            pInputText
+            id="phone_number"
+            formControlName="phoneNumber"
+            autocomplete="off"
+          />
+          <label for="phone_number">Phone Number</label>
+        </p-floatlabel>
+        <div class="aa--m-4 aa--text-xl aa--flex aa--gap-2">
+          Is it sponsored?
+          <p-radiobutton
+            name="sponsored"
+            value="Yes"
+            formControlName="sponsored"
+            inputId="yes"
+            size="large"
+            class="aa--ml-2"
+          />
+          <label for="yes" class="aa--ml-2">Yes</label>
+          <p-radiobutton
+            name="sponsored"
+            value="No"
+            formControlName="sponsored"
+            inputId="no"
+            size="large"
+            class="aa--ml-2"
+          />
+          <label for="no" class="aa--ml-2">No</label>
+        </div>
+        <p-fileupload
+          class="aa--m-4 aa--ml-12"
+          mode="basic"
+          chooseLabel="Choose"
+          chooseIcon="pi pi-upload"
+          name="fileUpload"
+          url="https://www.primefaces.org/cdn/api/upload.php"
+          accept="image/*"
+          maxFileSize="1000000"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="aa--mt-4 aa--flex aa--justify-end">
+    <p-button label="Submit" type="submit" />
+  </div>
+</form>

@@ -29,8 +29,11 @@
     "@fortawesome/free-brands-svg-icons": "^6.7.1",
     "@fortawesome/free-regular-svg-icons": "^6.7.1",
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
+    "@primeng/themes": "^19.0.9",
     "angular-auth-oidc-client": "^19.0.0",
     "jwt-decode": "^4.0.0",
+    "primeicons": "^7.0.0",
+    "primeng": "^19.0.9",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

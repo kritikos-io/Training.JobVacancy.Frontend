@@ -33,6 +33,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/company-create').then(c => c.CompanyCreateComponent),
   },
+  {
+    path: 'poc-primeng',
+    loadComponent: () => import('./features/primeng').then(c => c.PrimengComponent),
+  },
 
   {
     path: 'unauthorized',
